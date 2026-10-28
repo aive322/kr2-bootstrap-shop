@@ -1,0 +1,11 @@
+# Системные файлы
+.DS_Store
+Thumbs.db
+
+# Настройки редактора
+.vscode/
+.idea/
+
+# Зависимости и логи
+node_modules/
+*.log
