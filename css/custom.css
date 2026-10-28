@@ -3,23 +3,14 @@ body {
   min-height: 100vh;
 }
 
-/* Заглушка под баннер в hero-блоке */
-.placeholder-box {
-  min-height: 240px;
-}
-
-/* Временный блок вместо изображения товара */
-.placeholder-image {
-  min-height: 320px;
-}
-
-/* Изображение в карточке товара: единые пропорции 3:2 */
-.card-img-top {
+/* Фотографии туров: единые пропорции 3:2 */
+.photo-cover {
+  width: 100%;
   aspect-ratio: 3 / 2;
   object-fit: cover;
 }
 
-/* Плавный переход к якорю «Хиты продаж» */
+/* Плавный переход к якорю «Популярные туры» */
 html {
   scroll-behavior: smooth;
 }
