@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Каталог туров турагентства «Горизонт»: Турция, Египет, Италия, Таиланд, Грузия, Байкал, Франция, ОАЭ, Мальдивы. Фильтры по цене, ночам и питанию.">
+  <title>Туры — Горизонт: пляжный отдых и поездки по Европе</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+<body>
+  <!-- Верхняя полоса на всю ширину экрана: container-fluid -->
+  <div class="container-fluid topbar text-white small py-2">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+      <span><i class="bi bi-telephone me-1"></i><a class="text-white text-decoration-none fw-semibold" href="tel:+78005550123">+7 (800) 555-01-23</a>
+        <span class="d-none d-sm-inline opacity-75 ms-2">Ежедневно с 9:00 до 21:00</span></span>
+      <span class="d-none d-md-inline opacity-75"><i class="bi bi-credit-card me-1"></i>Рассрочка 0% на туры от 50&nbsp;000&nbsp;₽</span>
+    </div>
+  </div>
+
+  <nav class="navbar navbar-expand-lg bg-white sticky-top site-nav">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2 fw-bold" href="index.html">
+        <svg class="brand-logo" width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="17" fill="#0b7a7c"/><path d="M9 21a8 8 0 0 1 16 0z" fill="#f2a33a"/><path d="M6 21h22" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/><path d="M10 25h14" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".7"/></svg>
+        <span>Горизонт</span>
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#mainNavbar"
+        aria-controls="mainNavbar"
+        aria-expanded="false"
+        aria-label="Переключить навигацию"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Главная</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="catalog.html">Туры</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Направления</a>
+            <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="catalog.html?dest=turkey">Турция</a></li>
+            <li><a class="dropdown-item" href="catalog.html?dest=egypt">Египет</a></li>
+            <li><a class="dropdown-item" href="catalog.html?dest=italy">Италия</a></li>
+            <li><a class="dropdown-item" href="catalog.html?dest=thailand">Таиланд</a></li>
+            <li><a class="dropdown-item" href="catalog.html?dest=georgia">Грузия</a></li>
+            <li><a class="dropdown-item" href="catalog.html?dest=russia">Россия</a></li>
+            <li><a class="dropdown-item" href="catalog.html?dest=france">Франция</a></li>
+            <li><a class="dropdown-item" href="catalog.html?dest=uae">ОАЭ</a></li>
+            <li><a class="dropdown-item" href="catalog.html?dest=maldives">Мальдивы</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="catalog.html">Все туры</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#reviews">Отзывы</a>
+          </li>
+          <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+            <a class="btn btn-primary" href="order.html">Подобрать тур</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="page-head">
+      <div class="container">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb mb-2 small">
+        <li class="breadcrumb-item"><a href="index.html">Главная</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Туры</li>
+          </ol>
+        </nav>
+        <h1 class="h2 fw-bold mb-0">Туры и путешествия</h1>
+      <p class="text-muted mb-0 mt-2">Подберите тур по направлению, цене и длительности поездки</p>
+      </div>
+    </div>
+
+    <div class="container py-4 py-lg-5">
+      <div class="alert alert-warning alert-dismissible fade show d-flex align-items-center mb-4" role="alert">
+        <i class="bi bi-fire fs-4 me-3"></i>
+        <div><strong>Горящие туры.</strong> Скидки до 12&nbsp;000&nbsp;₽ на человека при вылете в ближайшие недели. Количество мест ограничено.</div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Закрыть"></button>
+      </div>
+
+      <div class="row g-4">
+        <!-- Фильтры -->
+        <aside class="col-12 col-lg-3">
+          <button class="btn btn-outline-primary w-100 d-lg-none mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#filters" aria-expanded="false" aria-controls="filters">
+            <i class="bi bi-sliders me-1"></i>Фильтры
+          </button>
+          <div class="collapse d-lg-block" id="filters">
+            <form id="filterForm" class="card filters border-0 shadow-sm p-3 p-lg-4" role="search" aria-label="Фильтры туров">
+              <div class="mb-3">
+                <label for="f-q" class="form-label fw-semibold">Поиск</label>
+                <div class="input-group">
+                  <span class="input-group-text bg-white"><i class="bi bi-search"></i></span>
+                  <input id="f-q" name="q" type="search" class="form-control" placeholder="Страна или город">
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="f-dest" class="form-label fw-semibold">Направление</label>
+                <select id="f-dest" name="dest" class="form-select">
+                  <option value="">Все направления</option>
+                  <option value="turkey">Турция</option><option value="egypt">Египет</option><option value="italy">Италия</option><option value="thailand">Таиланд</option><option value="georgia">Грузия</option><option value="russia">Россия</option><option value="france">Франция</option><option value="uae">ОАЭ</option><option value="maldives">Мальдивы</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="f-price" class="form-label fw-semibold d-flex justify-content-between">Цена до <output id="f-price-out" for="f-price" class="fw-normal text-muted"></output></label>
+                <input id="f-price" name="price" type="range" class="form-range" min="30000" max="190000" step="5000" value="190000">
+              </div>
+              <div class="mb-3">
+                <span class="form-label fw-semibold d-block">Ночей</span>
+                <div class="d-flex flex-wrap gap-2" role="group" aria-label="Количество ночей">
+              <input type="radio" class="btn-check" name="nights" id="n-any" value="" autocomplete="off" checked>
+              <label class="btn btn-outline-primary btn-sm" for="n-any">Любое</label>
+              <input type="radio" class="btn-check" name="nights" id="n-short" value="short" autocomplete="off">
+              <label class="btn btn-outline-primary btn-sm" for="n-short">До 7</label>
+              <input type="radio" class="btn-check" name="nights" id="n-mid" value="mid" autocomplete="off">
+              <label class="btn btn-outline-primary btn-sm" for="n-mid">8–10</label>
+              <input type="radio" class="btn-check" name="nights" id="n-long" value="long" autocomplete="off">
+              <label class="btn btn-outline-primary btn-sm" for="n-long">11 и более</label>
+                </div>
+              </div>
+              <div class="mb-3">
+                <span class="form-label fw-semibold d-block">Питание</span>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="meal" value="Всё включено" id="meal-0">
+              <label class="form-check-label" for="meal-0">Всё включено</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="meal" value="Завтраки" id="meal-1">
+              <label class="form-check-label" for="meal-1">Завтраки</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="meal" value="Завтраки и ужины" id="meal-2">
+              <label class="form-check-label" for="meal-2">Завтраки и ужины</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="meal" value="Полупансион" id="meal-3">
+              <label class="form-check-label" for="meal-3">Полупансион</label>
+            </div>
+              </div>
+              <div class="form-check form-switch mb-4">
+                <input class="form-check-input" type="checkbox" role="switch" name="hot" id="f-hot">
+                <label class="form-check-label" for="f-hot">Только горящие и со скидкой</label>
+              </div>
+              <button type="reset" id="resetFilters" class="btn btn-outline-secondary w-100">Сбросить фильтры</button>
+            </form>
+          </div>
+        </aside>
+
+        <!-- Список туров -->
+        <section class="col-12 col-lg-9" aria-label="Список туров">
+          <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+            <p class="mb-0 text-muted" id="resultCount" aria-live="polite">Найдено: 19 туров</p>
+            <div class="d-flex align-items-center gap-2">
+              <label for="f-sort" class="small text-muted mb-0 text-nowrap">Сортировка</label>
+              <select id="f-sort" class="form-select form-select-sm">
+                <option value="pop">По популярности</option>
+                <option value="price-asc">Сначала дешевле</option>
+                <option value="price-desc">Сначала дороже</option>
+                <option value="rating">По рейтингу</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row g-4" id="tourList">
+      <div class="col-12 col-md-6 col-xl-4 tour-col" data-dest="turkey" data-price="54900" data-nights="7" data-meals="Всё включено" data-hot="0" data-rating="4.8" data-pop="0" data-search="турция, анталья анталья: пляжный отдых «всё включено» турция">
+        <article class="card tour-card h-100 border-0 shadow-sm">
+          <div class="position-relative">
+            <img src="images/photos/antalya.jpg" class="card-img-top" alt="Песчаный пляж и горы в Анталье" loading="lazy">
+            <span class="badge bg-warning text-dark tour-card__label">Хит</span>
+          </div>
+          <div class="card-body d-flex flex-column">
+            <p class="text-muted small mb-1"><i class="bi bi-geo-alt me-1"></i>Турция, Анталья</p>
+            <h3 class="h5 card-title"><a class="text-reset text-decoration-none" href="product.html">Анталья: пляжный отдых «всё включено»</a></h3>
+            <p class="small text-muted mb-2">7&nbsp;ночей &middot; отель 5&#9733; &middot; Всё включено</p>
+            <p class="small mb-3"><i class="bi bi-star-fill text-warning"></i> <strong>4.8</strong> <span class="text-muted">(126 отзывов)</span></p>
+            <div class="mt-auto">
+              <p class="mb-3"><span class="text-muted small">от</span> <span class="fs-4 fw-bold ">54 900 ₽</span>
+                <span class="text-muted small d-block">за человека</span></p>
+              <div class="d-flex gap-2">
+                <a class="btn btn-primary" href="product.html">Подробнее</a>
+          <button class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#orderModal" data-tour="Турция, Анталья" data-slug="antalya">Заказать</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="col-12 col-md-6 col-xl-4 tour-col" data-dest="egypt" data-price="68500" data-nights="10" data-meals="Всё включено" data-hot="1" data-rating="4.7" data-pop="1" data-search="египет, шарм-эль-шейх шарм-эль-шейх: красное море и коралловые рифы египет">
+        <article class="card tour-card h-100 border-0 shadow-sm">
+          <div class="position-relative">
+            <img src="images/photos/sharm.jpg" class="card-img-top" alt="Пляж с пальмами и зонтиками в Шарм-эль-Шейхе" loading="lazy">
+            <span class="badge bg-danger tour-card__label">Горящий тур</span>
+          </div>
+          <div class="card-body d-flex flex-column">
+            <p class="text-muted small mb-1"><i class="bi bi-geo-alt me-1"></i>Египет, Шарм-эль-Шейх</p>
+            <h3 class="h5 card-title"><a class="text-reset text-decoration-none" href="product-2.html">Шарм-эль-Шейх: Красное море и коралловые рифы</a></h3>
+            <p class="small text-muted mb-2">10&nbsp;ночей &middot; отель 4&#9733; &middot; Всё включено</p>
+            <p class="small mb-3"><i class="bi bi-star-fill text-warning"></i> <strong>4.7</strong> <span class="text-muted">(98 отзывов)</span></p>
+            <div class="mt-auto">
+              <p class="mb-3"><span class="text-muted small">от</span> <span class="fs-4 fw-bold text-danger">68 500 ₽</span><s class="text-muted small ms-2">78 500 ₽</s>
+                <span class="text-muted small d-block">за человека</span></p>
+              <div class="d-flex gap-2">
+                <a class="btn btn-primary" href="product-2.html">Подробнее</a>
+          <button class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#orderModal" data-tour="Египет, Шарм-эль-Шейх" data-slug="sharm">Заказать</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="col-12 col-md-6 col-xl-4 tour-col" data-dest="italy" data-price="79900" data-nights="4" data-meals="Завтраки" data-hot="0" data-rating="4.9" data-pop="2" data-search="италия, рим рим: вечный город за 5 дней италия">
+        <article class="card tour-card h-100 border-0 shadow-sm">
+          <div class="position-relative">
+            <img src="images/photos/rome.jpg" class="card-img-top" alt="Колизей в Риме на закате" loading="lazy">
+            <span class="badge bg-success tour-card__label">Новинка</span>
+          </div>
+          <div class="card-body d-flex flex-column">
+            <p class="text-muted small mb-1"><i class="bi bi-geo-alt me-1"></i>Италия, Рим</p>
+            <h3 class="h5 card-title"><a class="text-reset text-decoration-none" href="product-3.html">Рим: вечный город за 5 дней</a></h3>
+            <p class="small text-muted mb-2">4&nbsp;ночи &middot; отель 4&#9733; &middot; Завтраки</p>
+            <p class="small mb-3"><i class="bi bi-star-fill text-warning"></i> <strong>4.9</strong> <span class="text-muted">(54 отзывов)</span></p>
+            <div class="mt-auto">
+              <p class="mb-3"><span class="text-muted small">от</span> <span class="fs-4 fw-bold ">79 900 ₽</span>
+                <span class="text-muted small d-block">за человека</span></p>
+              <div class="d-flex gap-2">
+                <a class="btn btn-primary" href="product-3.html">Подробнее</a>
+          <button class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#orderModal" data-tour="Италия, Рим" data-slug="rome">Заказать</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="col-12 col-md-6 col-xl-4 tour-col" data-dest="thailand" data-price="109900" data-nights="10" data-meals="Завтраки" data-hot="0" data-rating="4.8" data-pop="3" data-search="таиланд, пхукет пхукет: острова андаманского моря таиланд">
+        <article class="card tour-card h-100 border-0 shadow-sm">
+          <div class="position-relative">
+            <img src="images/photos/phuket.jpg" class="card-img-top" alt="Лодки у скал на пляже Пхукета" loading="lazy">
+            <span class="badge bg-success tour-card__label">Новинка</span>
+          </div>
+          <div class="card-body d-flex flex-column">
+            <p class="text-muted small mb-1"><i class="bi bi-geo-alt me-1"></i>Таиланд, Пхукет</p>
+            <h3 class="h5 card-title"><a class="text-reset text-decoration-none" href="product-4.html">Пхукет: острова Андаманского моря</a></h3>
+            <p class="small text-muted mb-2">10&nbsp;ночей &middot; отель 4&#9733; &middot; Завтраки</p>
+            <p class="small mb-3"><i class="bi bi-star-fill text-warning"></i> <strong>4.8</strong> <span class="text-muted">(73 отзывов)</span></p>
+            <div class="mt-auto">
+              <p class="mb-3"><span class="text-muted small">от</span> <span class="fs-4 fw-bold ">109 900 ₽</span>
+                <span class="text-muted small d-block">за человека</span></p>
+              <div class="d-flex gap-2">
+                <a class="btn btn-primary" href="product-4.html">Подробнее</a>
+          <button class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#orderModal" data-tour="Таиланд, Пхукет" data-slug="phuket">Заказать</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="col-12 col-md-6 col-xl-4 tour-col" data-dest="georgia" data-price="42500" data-nights="5" data-meals="Завтраки и ужины" data-hot="0" data-rating="4.9" data-pop="4" data-search="грузия, тбилиси и кахетия тбилиси и кахетия: вино, горы и старый город грузия">
+        <article class="card tour-card h-100 border-0 shadow-sm">
+          <div class="position-relative">
+            <img src="images/photos/tbilisi.jpg" class="card-img-top" alt="Старый город Тбилиси с высоты" loading="lazy">
+            <span class="badge bg-warning text-dark tour-card__label">Хит</span>
+          </div>
+          <div class="card-body d-flex flex-column">
+            <p class="text-muted small mb-1"><i class="bi bi-geo-alt me-1"></i>Грузия, Тбилиси и Кахетия</p>
+            <h3 class="h5 card-title"><a class="text-reset text-decoration-none" href="product-5.html">Тбилиси и Кахетия: вино, горы и старый город</a></h3>
+            <p class="small text-muted mb-2">5&nbsp;ночей &middot; отель 4&#9733; &middot; Завтраки и ужины</p>
+            <p class="small mb-3"><i class="bi bi-star-fill text-warning"></i> <strong>4.9</strong> <span class="text-muted">(61 отзывов)</span></p>
+            <div class="mt-auto">
+              <p class="mb-3"><span class="text-muted small">от</span> <span class="fs-4 fw-bold ">42 500 ₽</span>
+                <span class="text-muted small d-block">за человека</span></p>
+              <div class="d-flex gap-2">
+                <a class="btn btn-primary" href="product-5.html">Подробнее</a>
+          <button class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#orderModal" data-tour="Грузия, Тбилиси и Кахетия" data-slug="tbilisi">Заказать</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="col-12 col-md-6 col-xl-4 tour-col" data-dest="russia" data-price="64900" data-nights="6" data-meals="Полупансион" data-hot="1" data-rating="4.8" data-pop="5" data-search="россия, байкал байкал: зимние приключения на льду россия">
+        <article class="card tour-card h-100 border-0 shadow-sm">
+          <div class="position-relative">
+            <img src="images/photos/baikal.jpg" class="card-img-top" alt="Скалистый берег Байкала и прозрачный лёд" loading="lazy">
+            <span class="badge bg-danger tour-card__label">Скидка</span>
+          </div>
+          <div class="card-body d-flex flex-column">
+            <p class="text-muted small mb-1"><i class="bi bi-geo-alt me-1"></i>Россия, Байкал</p>
+            <h3 class="h5 card-title"><a class="text-reset text-decoration-none" href="product-6.html">Байкал: зимние приключения на льду</a></h3>
+            <p class="small text-muted mb-2">6&nbsp;ночей &middot; отель 4&#9733; &middot; Полупансион</p>
+            <p class="small mb-3"><i class="bi bi-star-fill text-warning"></i> <strong>4.8</strong> <span class="text-muted">(47 отзывов)</span></p>
+            <div class="mt-auto">
+              <p class="mb-3"><span class="text-muted small">от</span> <span class="fs-4 fw-bold text-danger">64 900 ₽</span><s class="text-muted small ms-2">76 900 ₽</s>
+                <span class="text-muted small d-block">за человека</span></p>
+              <div class="d-flex gap-2">
+                <a class="btn btn-primary" href="product-6.html">Подробнее</a>
+          <button class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#orderModal" data-tour="Россия, Байкал" data-slug="baikal">Заказать</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="col-12 col-md-6 col-xl-4 tour-col" data-dest="france" data-price="94900" data-nights="5" data-meals="Завтраки" data-hot="0" data-rating="4.8" data-pop="6" data-search="франция, париж париж: город огней и музеев франция">
+        <article class="card tour-card h-100 border-0 shadow-sm">
+          <div class="position-relative">
+            <img src="images/photos/paris.jpg" class="card-img-top" alt="Эйфелева башня и Сена в сумерках" loading="lazy">
+            
+          </div>
+          <div class="card-body d-flex flex-column">
+            <p class="text-muted small mb-1"><i class="bi bi-geo-alt me-1"></i>Франция, Париж</p>
+            <h3 class="h5 card-title"><a class="text-reset text-decoration-none" href="product-7.html">Париж: город огней и музеев</a></h3>
+            <p class="small text-muted mb-2">5&nbsp;ночей &middot; отель 4&#9733; &middot; Завтраки</p>
+            <p class="small mb-3"><i class="bi bi-star-fill text-warning"></i> <strong>4.8</strong> <span class="text-muted">(89 отзывов)</span></p>
+            <div class="mt-auto">
+              <p class="mb-3"><span class="text-muted small">от</span> <span class="fs-4 fw-bold ">94 900 ₽</span>
+                <span class="text-muted small d-block">за человека</span></p>
+              <div class="d-flex gap-2">
+                <a class="btn btn-primary" href="product-7.html">Подробнее</a>
+          <button class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#orderModal" data-tour="Франция, Париж" data-slug="paris">Заказать</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="col-12 col-md-6 col-xl-4 tour-col" data-dest="uae" data-price="89900" data-nights="7" data-meals="Завтраки" data-hot="1" data-rating="4.7" data-pop="7" data-search="оаэ, дубай дубай: небоскрёбы и песчаные пляжи оаэ">
+        <article class="card tour-card h-100 border-0 shadow-sm">
+          <div class="position-relative">
+            <img src="images/photos/dubai.jpg" class="card-img-top" alt="Отель Бурдж-эль-Араб у побережья Дубая" loading="lazy">
+            <span class="badge bg-danger tour-card__label">Горящий тур</span>
+          </div>
+          <div class="card-body d-flex flex-column">
+            <p class="text-muted small mb-1"><i class="bi bi-geo-alt me-1"></i>ОАЭ, Дубай</p>
+            <h3 class="h5 card-title"><a class="text-reset text-decoration-none" href="product-8.html">Дубай: небоскрёбы и песчаные пляжи</a></h3>
+            <p class="small text-muted mb-2">7&nbsp;ночей &middot; отель 5&#9733; &middot; Завтраки</p>
+            <p class="small mb-3"><i class="bi bi-star-fill text-warning"></i> <strong>4.7</strong> <span class="text-muted">(82 отзывов)</span></p>
+            <div class="mt-auto">
+              <p class="mb-3"><span class="text-muted small">от</span> <span class="fs-4 fw-bold text-danger">89 900 ₽</span><s class="text-muted small ms-2">99 900 ₽</s>
+                <span class="text-muted small d-block">за человека</span></p>
+              <div class="d-flex gap-2">
+                <a class="btn btn-primary" href="product-8.html">Подробнее</a>
+          <button class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#orderModal" data-tour="ОАЭ, Дубай" data-slug="dubai">Заказать</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="col-12 col-md-6 col-xl-4 tour-col" data-dest="maldives" data-price="189900" data-nights="8" data-meals="Завтраки и ужины" data-hot="0" data-rating="5.0" data-pop="8" data-search="мальдивы мальдивы: вилла на воде мальдивы">
+        <article class="card tour-card h-100 border-0 shadow-sm">
+          <div class="position-relative">
+            <img src="images/photos/maldives.jpg" class="card-img-top" alt="Виллы на воде на Мальдивах" loading="lazy">
+            <span class="badge bg-dark tour-card__label">Премиум</span>
+          </div>
+          <div class="card-body d-flex flex-column">
+            <p class="text-muted small mb-1"><i class="bi bi-geo-alt me-1"></i>Мальдивы</p>
+            <h3 class="h5 card-title"><a class="text-reset text-decoration-none" href="product-9.html">Мальдивы: вилла на воде</a></h3>
+            <p class="small text-muted mb-2">8&nbsp;ночей &middot; отель 5&#9733; &middot; Завтраки и ужины</p>
+            <p class="small mb-3"><i class="bi bi-star-fill text-warning"></i> <strong>5.0</strong> <span class="text-muted">(36 отзывов)</span></p>
+            <div class="mt-auto">
+              <p class="mb-3"><span class="text-muted small">от</span> <span class="fs-4 fw-bold ">189 900 ₽</span>
+                <span class="text-muted small d-block">за человека</span></p>
+              <div class="d-flex gap-2">
+                <a class="btn btn-primary" href="product-9.html">Подробнее</a>
+          <button class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#orderModal" data-tour="Мальдивы" data-slug="maldives">Заказать</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="col-12 col-md-6 col-xl-4 tour-col" data-dest="turkey" data-price="62900" data-nights="7" data-meals="Всё включено" data-hot="0" data-rating="4.8" data-pop="9" data-search="турция, кемер кемер: горы, сосны и море турция">
+        <article class="card tour-card h-100 border-0 shadow-sm">
+          <div class="position-relative">
+            <img src="images/photos/kemer.jpg" class="card-img-top" alt="Бассейн с пальмами и горы Тавр в Кемере" loading="lazy">
+            <span class="badge bg-warning text-dark tour-card__label">Хит</span>
+          </div>
+          <div class="card-body d-flex flex-column">
+            <p class="text-muted small mb-1"><i class="bi bi-geo-alt me-1"></i>Турция, Кемер</p>
+            <h3 class="h5 card-title"><a class="text-reset text-decoration-none" href="product-10.html">Кемер: горы, сосны и море</a></h3>
+            <p class="small text-muted mb-2">7&nbsp;ночей &middot; отель 5&#9733; &middot; Всё включено</p>
+            <p class="small mb-3"><i class="bi bi-star-fill text-warning"></i> <strong>4.8</strong> <span class="text-muted">(94 отзывов)</span></p>
+            <div class="mt-auto">
+              <p class="mb-3"><span class="text-muted small">от</span> <span class="fs-4 fw-bold ">62 900 ₽</span>
+                <span class="text-muted small d-block">за человека</span></p>
+              <div class="d-flex gap-2">
+                <a class="btn btn-primary" href="product-10.html">Подробнее</a>
+          <button class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#orderModal" data-tour="Турция, Кемер" data-slug="kemer">Заказать</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="col-12 col-md-6 col-xl-4 tour-col" data-dest="turkey" data-price="47900" data-nights="4" data-meals="Завтраки" data-hot="0" data-rating="4.7" data-pop="10" data-search="турция, стамбул стамбул: город на двух континентах турция">
+        <article class="card tour-card h-100 border-0 shadow-sm">
+          <div class="position-relative">
+            <img src="images/photos/istanbul.jpg" class="card-img-top" alt="Мечеть и паром на Босфоре в Стамбуле" loading="lazy">
+            <span class="badge bg-success tour-card__label">Новинка</span>
+          </div>
+          <div class="card-body d-flex flex-column">
+            <p class="text-muted small mb-1"><i class="bi bi-geo-alt me-1"></i>Турция, Стамбул</p>
+            <h3 class="h5 card-title"><a class="text-reset text-decoration-none" href="product-11.html">Стамбул: город на двух континентах</a></h3>
+            <p class="small text-muted mb-2">4&nbsp;ночи &middot; отель 4&#9733; &middot; Завтраки</p>
+            <p class="small mb-3"><i class="bi bi-star-fill text-warning"></i> <strong>4.7</strong> <span class="text-muted">(68 отзывов)</span></p>
+            <div class="mt-auto">
+              <p class="mb-3"><span class="text-muted small">от</span> <span class="fs-4 fw-bold ">47 900 ₽</span>
+                <span class="text-muted small d-block">за человека</span></p>
+              <div class="d-flex gap-2">
+                <a class="btn btn-primary" href="product-11.html">Подробнее</a>
+          <button class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#orderModal" data-tour="Турция, Стамбул" data-slug="istanbul">Заказать</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="col-12 col-md-6 col-xl-4 tour-col" data-dest="egypt" data-price="52900" data-nights="7" data-meals="Всё включено" data-hot="1" data-rating="4.6" data-pop="11" data-search="египет, хургада хургада: красное море и острова египет">
+        <article class="card tour-card h-100 border-0 shadow-sm">
+          <div class="position-relative">
+            <img src="images/photos/hurghada.jpg" class="card-img-top" alt="Марина и бухта Хургады с высоты" loading="lazy">
+            <span class="badge bg-danger tour-card__label">Горящий тур</span>
+          </div>
+          <div class="card-body d-flex flex-column">
+            <p class="text-muted small mb-1"><i class="bi bi-geo-alt me-1"></i>Египет, Хургада</p>
+            <h3 class="h5 card-title"><a class="text-reset text-decoration-none" href="product-12.html">Хургада: Красное море и острова</a></h3>
+            <p class="small text-muted mb-2">7&nbsp;ночей &middot; отель 4&#9733; &middot; Всё включено</p>
+            <p class="small mb-3"><i class="bi bi-star-fill text-warning"></i> <strong>4.6</strong> <span class="text-muted">(112 отзывов)</span></p>
+            <div class="mt-auto">
+              <p class="mb-3"><span class="text-muted small">от</span> <span class="fs-4 fw-bold text-danger">52 900 ₽</span><s class="text-muted small ms-2">59 900 ₽</s>
+                <span class="text-muted small d-block">за человека</span></p>
+              <div class="d-flex gap-2">
+                <a class="btn btn-primary" href="product-12.html">Подробнее</a>
+          <button class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#orderModal" data-tour="Египет, Хургада" data-slug="hurghada">Заказать</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="col-12 col-md-6 col-xl-4 tour-col" data-dest="italy" data-price="84900" data-nights="4" data-meals="Завтраки" data-hot="0" data-rating="4.9" data-pop="12" data-search="италия, венеция венеция: город на воде италия">
+        <article class="card tour-card h-100 border-0 shadow-sm">
+          <div class="position-relative">
+            <img src="images/photos/venice.jpg" class="card-img-top" alt="Мост Риальто над Большим каналом в Венеции" loading="lazy">
+            
+          </div>
+          <div class="card-body d-flex flex-column">
+            <p class="text-muted small mb-1"><i class="bi bi-geo-alt me-1"></i>Италия, Венеция</p>
+            <h3 class="h5 card-title"><a class="text-reset text-decoration-none" href="product-13.html">Венеция: город на воде</a></h3>
+            <p class="small text-muted mb-2">4&nbsp;ночи &middot; отель 4&#9733; &middot; Завтраки</p>
+            <p class="small mb-3"><i class="bi bi-star-fill text-warning"></i> <strong>4.9</strong> <span class="text-muted">(41 отзывов)</span></p>
+            <div class="mt-auto">
+              <p class="mb-3"><span class="text-muted small">от</span> <span class="fs-4 fw-bold ">84 900 ₽</span>
+                <span class="text-muted small d-block">за человека</span></p>
+              <div class="d-flex gap-2">
+                <a class="btn btn-primary" href="product-13.html">Подробнее</a>
+          <button class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#orderModal" data-tour="Италия, Венеция" data-slug="venice">Заказать</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="col-12 col-md-6 col-xl-4 tour-col" data-dest="thailand" data-price="96500" data-nights="9" data-meals="Завтраки" data-hot="0" data-rating="4.7" data-pop="13" data-search="таиланд, бангкок и паттайя бангкок и паттайя: храмы и море таиланд">
+        <article class="card tour-card h-100 border-0 shadow-sm">
+          <div class="position-relative">
+            <img src="images/photos/bangkok.jpg" class="card-img-top" alt="Храм Ват Арун на берегу реки в Бангкоке" loading="lazy">
+            <span class="badge bg-success tour-card__label">Новинка</span>
+          </div>
+          <div class="card-body d-flex flex-column">
+            <p class="text-muted small mb-1"><i class="bi bi-geo-alt me-1"></i>Таиланд, Бангкок и Паттайя</p>
+            <h3 class="h5 card-title"><a class="text-reset text-decoration-none" href="product-14.html">Бангкок и Паттайя: храмы и море</a></h3>
+            <p class="small text-muted mb-2">9&nbsp;ночей &middot; отель 4&#9733; &middot; Завтраки</p>
+            <p class="small mb-3"><i class="bi bi-star-fill text-warning"></i> <strong>4.7</strong> <span class="text-muted">(58 отзывов)</span></p>
+            <div class="mt-auto">
+              <p class="mb-3"><span class="text-muted small">от</span> <span class="fs-4 fw-bold ">96 500 ₽</span>
+                <span class="text-muted small d-block">за человека</span></p>
+              <div class="d-flex gap-2">
+                <a class="btn btn-primary" href="product-14.html">Подробнее</a>
+          <button class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#orderModal" data-tour="Таиланд, Бангкок и Паттайя" data-slug="bangkok">Заказать</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="col-12 col-md-6 col-xl-4 tour-col" data-dest="georgia" data-price="58700" data-nights="7" data-meals="Завтраки" data-hot="1" data-rating="4.8" data-pop="14" data-search="грузия, батуми батуми: чёрноморский курорт грузии грузия">
+        <article class="card tour-card h-100 border-0 shadow-sm">
+          <div class="position-relative">
+            <img src="images/photos/batumi.jpg" class="card-img-top" alt="Порт и набережная Батуми" loading="lazy">
+            <span class="badge bg-danger tour-card__label">Скидка</span>
+          </div>
+          <div class="card-body d-flex flex-column">
+            <p class="text-muted small mb-1"><i class="bi bi-geo-alt me-1"></i>Грузия, Батуми</p>
+            <h3 class="h5 card-title"><a class="text-reset text-decoration-none" href="product-15.html">Батуми: чёрноморский курорт Грузии</a></h3>
+            <p class="small text-muted mb-2">7&nbsp;ночей &middot; отель 4&#9733; &middot; Завтраки</p>
+            <p class="small mb-3"><i class="bi bi-star-fill text-warning"></i> <strong>4.8</strong> <span class="text-muted">(77 отзывов)</span></p>
+            <div class="mt-auto">
+              <p class="mb-3"><span class="text-muted small">от</span> <span class="fs-4 fw-bold text-danger">58 700 ₽</span><s class="text-muted small ms-2">66 700 ₽</s>
+                <span class="text-muted small d-block">за человека</span></p>
+              <div class="d-flex gap-2">
+                <a class="btn btn-primary" href="product-15.html">Подробнее</a>
+          <button class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#orderModal" data-tour="Грузия, Батуми" data-slug="batumi">Заказать</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="col-12 col-md-6 col-xl-4 tour-col" data-dest="russia" data-price="31900" data-nights="3" data-meals="Завтраки" data-hot="0" data-rating="4.9" data-pop="15" data-search="россия, санкт-петербург санкт-петербург: северная столица россия">
+        <article class="card tour-card h-100 border-0 shadow-sm">
+          <div class="position-relative">
+            <img src="images/photos/spb.jpg" class="card-img-top" alt="Разведённый мост над Невой на закате" loading="lazy">
+            <span class="badge bg-warning text-dark tour-card__label">Хит</span>
+          </div>
+          <div class="card-body d-flex flex-column">
+            <p class="text-muted small mb-1"><i class="bi bi-geo-alt me-1"></i>Россия, Санкт-Петербург</p>
+            <h3 class="h5 card-title"><a class="text-reset text-decoration-none" href="product-16.html">Санкт-Петербург: северная столица</a></h3>
+            <p class="small text-muted mb-2">3&nbsp;ночи &middot; отель 4&#9733; &middot; Завтраки</p>
+            <p class="small mb-3"><i class="bi bi-star-fill text-warning"></i> <strong>4.9</strong> <span class="text-muted">(133 отзывов)</span></p>
+            <div class="mt-auto">
+              <p class="mb-3"><span class="text-muted small">от</span> <span class="fs-4 fw-bold ">31 900 ₽</span>
+                <span class="text-muted small d-block">за человека</span></p>
+              <div class="d-flex gap-2">
+                <a class="btn btn-primary" href="product-16.html">Подробнее</a>
+          <button class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#orderModal" data-tour="Россия, Санкт-Петербург" data-slug="spb">Заказать</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="col-12 col-md-6 col-xl-4 tour-col" data-dest="france" data-price="112900" data-nights="6" data-meals="Завтраки" data-hot="0" data-rating="4.8" data-pop="16" data-search="франция, ницца и лазурный берег ницца и лазурный берег франция">
+        <article class="card tour-card h-100 border-0 shadow-sm">
+          <div class="position-relative">
+            <img src="images/photos/nice.jpg" class="card-img-top" alt="Английская набережная и бухта Ниццы" loading="lazy">
+            <span class="badge bg-success tour-card__label">Новинка</span>
+          </div>
+          <div class="card-body d-flex flex-column">
+            <p class="text-muted small mb-1"><i class="bi bi-geo-alt me-1"></i>Франция, Ницца и Лазурный берег</p>
+            <h3 class="h5 card-title"><a class="text-reset text-decoration-none" href="product-17.html">Ницца и Лазурный берег</a></h3>
+            <p class="small text-muted mb-2">6&nbsp;ночей &middot; отель 4&#9733; &middot; Завтраки</p>
+            <p class="small mb-3"><i class="bi bi-star-fill text-warning"></i> <strong>4.8</strong> <span class="text-muted">(39 отзывов)</span></p>
+            <div class="mt-auto">
+              <p class="mb-3"><span class="text-muted small">от</span> <span class="fs-4 fw-bold ">112 900 ₽</span>
+                <span class="text-muted small d-block">за человека</span></p>
+              <div class="d-flex gap-2">
+                <a class="btn btn-primary" href="product-17.html">Подробнее</a>
+          <button class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#orderModal" data-tour="Франция, Ницца и Лазурный берег" data-slug="nice">Заказать</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="col-12 col-md-6 col-xl-4 tour-col" data-dest="uae" data-price="97500" data-nights="6" data-meals="Завтраки" data-hot="0" data-rating="4.8" data-pop="17" data-search="оаэ, абу-даби абу-даби: мечети и музеи оаэ">
+        <article class="card tour-card h-100 border-0 shadow-sm">
+          <div class="position-relative">
+            <img src="images/photos/abudhabi.jpg" class="card-img-top" alt="Мечеть шейха Зайда ночью" loading="lazy">
+            <span class="badge bg-dark tour-card__label">Премиум</span>
+          </div>
+          <div class="card-body d-flex flex-column">
+            <p class="text-muted small mb-1"><i class="bi bi-geo-alt me-1"></i>ОАЭ, Абу-Даби</p>
+            <h3 class="h5 card-title"><a class="text-reset text-decoration-none" href="product-18.html">Абу-Даби: мечети и музеи</a></h3>
+            <p class="small text-muted mb-2">6&nbsp;ночей &middot; отель 5&#9733; &middot; Завтраки</p>
+            <p class="small mb-3"><i class="bi bi-star-fill text-warning"></i> <strong>4.8</strong> <span class="text-muted">(51 отзывов)</span></p>
+            <div class="mt-auto">
+              <p class="mb-3"><span class="text-muted small">от</span> <span class="fs-4 fw-bold ">97 500 ₽</span>
+                <span class="text-muted small d-block">за человека</span></p>
+              <div class="d-flex gap-2">
+                <a class="btn btn-primary" href="product-18.html">Подробнее</a>
+          <button class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#orderModal" data-tour="ОАЭ, Абу-Даби" data-slug="abudhabi">Заказать</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="col-12 col-md-6 col-xl-4 tour-col" data-dest="maldives" data-price="139900" data-nights="7" data-meals="Завтраки и ужины" data-hot="1" data-rating="4.8" data-pop="18" data-search="мальдивы, атолл ари атолл ари: отдых на коралловом острове мальдивы">
+        <article class="card tour-card h-100 border-0 shadow-sm">
+          <div class="position-relative">
+            <img src="images/photos/maldives2.jpg" class="card-img-top" alt="Курортный остров на атолле Ари с высоты" loading="lazy">
+            <span class="badge bg-danger tour-card__label">Горящий тур</span>
+          </div>
+          <div class="card-body d-flex flex-column">
+            <p class="text-muted small mb-1"><i class="bi bi-geo-alt me-1"></i>Мальдивы, атолл Ари</p>
+            <h3 class="h5 card-title"><a class="text-reset text-decoration-none" href="product-19.html">Атолл Ари: отдых на коралловом острове</a></h3>
+            <p class="small text-muted mb-2">7&nbsp;ночей &middot; отель 4&#9733; &middot; Завтраки и ужины</p>
+            <p class="small mb-3"><i class="bi bi-star-fill text-warning"></i> <strong>4.8</strong> <span class="text-muted">(44 отзывов)</span></p>
+            <div class="mt-auto">
+              <p class="mb-3"><span class="text-muted small">от</span> <span class="fs-4 fw-bold text-danger">139 900 ₽</span><s class="text-muted small ms-2">159 900 ₽</s>
+                <span class="text-muted small d-block">за человека</span></p>
+              <div class="d-flex gap-2">
+                <a class="btn btn-primary" href="product-19.html">Подробнее</a>
+          <button class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#orderModal" data-tour="Мальдивы, атолл Ари" data-slug="maldives2">Заказать</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+          </div>
+
+          <div class="alert alert-info mt-4" id="emptyState" hidden>
+            <h2 class="h5">Ничего не найдено</h2>
+            <p class="mb-2">По выбранным условиям туров нет. Попробуйте увеличить бюджет или выбрать другое направление.</p>
+            <button type="button" class="btn btn-primary btn-sm" id="emptyReset">Сбросить фильтры</button>
+          </div>
+
+          <nav class="mt-5" aria-label="Страницы каталога">
+            <ul class="pagination justify-content-center mb-0" id="pagination"></ul>
+          </nav>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- Окно быстрой заявки -->
+  <div class="modal fade" id="orderModal" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 rounded-4">
+        <form class="needs-validation" novalidate data-success="Заявка отправлена. Менеджер перезвонит вам в течение 15 минут.">
+          <div class="modal-header border-0 pb-0">
+            <h2 class="modal-title h4" id="orderModalLabel">Быстрая заявка на тур</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+          </div>
+          <div class="modal-body">
+            <p class="text-muted small">Оставьте контакты, и менеджер уточнит даты и подберёт лучшую цену.</p>
+            <div class="mb-3">
+              <label for="m-product" class="form-label">Тур</label>
+              <input id="m-product" name="product" type="text" class="form-control" readonly>
+            </div>
+            <div class="mb-3">
+              <label for="m-name" class="form-label">Ваше имя</label>
+              <input id="m-name" name="name" type="text" class="form-control" required minlength="2" autocomplete="name">
+              <div class="invalid-feedback">Введите имя (не менее 2 символов).</div>
+            </div>
+            <div class="mb-3">
+              <label for="m-phone" class="form-label">Телефон</label>
+              <input id="m-phone" name="phone" type="tel" class="form-control" placeholder="+7 (900) 123-45-67" required pattern="\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}" autocomplete="tel">
+              <div class="invalid-feedback">Введите телефон полностью.</div>
+            </div>
+            <div class="form-check">
+              <input id="m-consent" name="consent" type="checkbox" class="form-check-input" required>
+              <label for="m-consent" class="form-check-label small">Согласен на обработку персональных данных</label>
+              <div class="invalid-feedback">Нужно ваше согласие.</div>
+            </div>
+          </div>
+          <div class="modal-footer border-0 pt-0">
+            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Отмена</button>
+            <button type="submit" class="btn btn-primary">Отправить заявку</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="siteToast" class="toast align-items-center text-bg-success border-0" role="status" aria-live="polite" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body"></div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Закрыть"></button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer pt-5 pb-4 mt-5">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-12 col-lg-4">
+          <a class="d-flex align-items-center gap-2 text-white text-decoration-none fw-bold fs-5 mb-3" href="index.html">
+            <svg class="brand-logo" width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="17" fill="#0b7a7c"/><path d="M9 21a8 8 0 0 1 16 0z" fill="#f2a33a"/><path d="M6 21h22" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/><path d="M10 25h14" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".7"/></svg>
+            <span>Горизонт</span>
+          </a>
+          <p class="mb-3">Подбираем пляжный отдых, экскурсионные поездки и города Европы под ключ. Работаем с проверенными туроператорами и отелями.</p>
+          <p class="mb-1"><i class="bi bi-telephone me-2"></i><a href="tel:+78005550123">+7 (800) 555-01-23</a></p>
+          <p class="mb-0"><i class="bi bi-envelope me-2"></i><a href="mailto:info@gorizont-tour.ru">info@gorizont-tour.ru</a></p>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <h2 class="h6 text-white mb-3">Направления</h2>
+          <ul class="list-unstyled mb-0">
+            <li class="mb-2"><a href="catalog.html?dest=turkey">Турция</a></li>
+            <li class="mb-2"><a href="catalog.html?dest=egypt">Египет</a></li>
+            <li class="mb-2"><a href="catalog.html?dest=italy">Италия</a></li>
+            <li class="mb-2"><a href="catalog.html?dest=thailand">Таиланд</a></li>
+            <li><a href="catalog.html?dest=maldives">Мальдивы</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <h2 class="h6 text-white mb-3">Компания</h2>
+          <ul class="list-unstyled mb-0">
+            <li class="mb-2"><a href="index.html#why">О нас</a></li>
+            <li class="mb-2"><a href="index.html#reviews">Отзывы</a></li>
+            <li class="mb-2"><a href="order.html">Подобрать тур</a></li>
+            <li><a href="catalog.html">Все туры</a></li>
+          </ul>
+        </div>
+        <div class="col-12 col-md-4 col-lg-4">
+          <h2 class="h6 text-white mb-3">Режим работы</h2>
+          <p class="mb-1">Пн–Пт: 9:00–21:00</p>
+          <p class="mb-3">Сб–Вс: 10:00–19:00</p>
+          <p class="mb-0">г. Москва, Тверская ул., 18, офис 4</p>
+        </div>
+      </div>
+      <hr class="border-secondary my-4">
+      <div class="d-flex flex-wrap justify-content-between gap-2 small">
+        <span>&copy; 2026 Турагентство «Горизонт». Все права защищены.</span>
+        <span><a href="#">Политика конфиденциальности</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+  </script>
+  <script src="js/main.js"></script>
+</body>
+</html>

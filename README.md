@@ -25,11 +25,26 @@
 - плитки направлений, этапы работы, отзывы;
 - блок с формой обратного звонка и подвал.
 
+## Практическая работа 10
+
+Тема: «Bootstrap-компоненты: навигация, карточки, формы, модальные окна».
+
+Добавлены страницы каталога, туров и заявки.
+
+Реализовано:
+
+- `catalog.html`: фильтры (`form-control`, `form-select`, `form-range`, `form-check`, переключатель), сортировка, пагинация (`pagination`), уведомление (`alert`), окно быстрой заявки (`modal`) и уведомление об отправке (`toast`);
+- `product.html`, `product-2.html` … `product-19.html` (19 туров): хлебные крошки (`breadcrumb`), галерея из 5 фото (`carousel`), вкладки (`nav-tabs`), таблица характеристик (`table`), вопросы и ответы (`accordion`), блок бронирования;
+- `order.html`: форма заявки с проверкой полей (`needs-validation`), группы `input-group`, `btn-check`, `form-check`;
+- выпадающее меню «Направления» (`dropdown`) в навигации;
+- `js/main.js`: фильтрация каталога, маска телефона, проверка форм, подстановка выбранного тура.
+
 ## Используемые технологии
 
 - HTML;
 - Bootstrap 5.3 и Bootstrap Icons;
 - CSS;
+- JavaScript;
 - Git;
 - GitHub.
 
@@ -38,8 +53,14 @@
 ```text
 kr2-bootstrap-shop/
 ├── index.html
+├── catalog.html
+├── product.html
+├── product-2.html … product-19.html
+├── order.html
 ├── css/
 │   └── custom.css
+├── js/
+│   └── main.js
 ├── images/
 │   └── photos/
 ├── README.md

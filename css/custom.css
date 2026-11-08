@@ -344,6 +344,131 @@ html {
   color: #fff;
 }
 
+/* --- Внутренние страницы --- */
+.page-head {
+  background: var(--hz-tint);
+  border-bottom: 1px solid #e3eaef;
+  padding: 1.5rem 0 1.75rem;
+}
+
+.breadcrumb {
+  --bs-breadcrumb-divider-color: #8a99a8;
+}
+
+.breadcrumb a {
+  text-decoration: none;
+}
+
+/* Поля форм в фирменных цветах */
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--hz-primary);
+  box-shadow: 0 0 0 0.25rem rgba(11, 122, 124, 0.18);
+}
+
+.form-check-input:checked {
+  background-color: var(--hz-primary);
+  border-color: var(--hz-primary);
+}
+
+.form-check-input:focus {
+  border-color: var(--hz-primary);
+  box-shadow: 0 0 0 0.25rem rgba(11, 122, 124, 0.18);
+}
+
+.form-range::-webkit-slider-thumb {
+  background-color: var(--hz-primary);
+}
+
+.form-range::-moz-range-thumb {
+  background-color: var(--hz-primary);
+}
+
+.form-range:focus::-webkit-slider-thumb {
+  box-shadow: 0 0 0 0.25rem rgba(11, 122, 124, 0.25);
+}
+
+/* Фильтры каталога */
+.filters {
+  border-radius: 1rem;
+}
+
+@media (min-width: 992px) {
+  .filters {
+    position: sticky;
+    top: 5.5rem;
+  }
+}
+
+/* Пагинация */
+.pagination {
+  --bs-pagination-color: var(--hz-primary);
+  --bs-pagination-hover-color: var(--hz-primary-dark);
+  --bs-pagination-focus-color: var(--hz-primary-dark);
+  --bs-pagination-active-bg: var(--hz-primary);
+  --bs-pagination-active-border-color: var(--hz-primary);
+  --bs-pagination-focus-box-shadow: 0 0 0 0.25rem rgba(11, 122, 124, 0.18);
+}
+
+/* Страница тура */
+.gallery {
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.gallery .carousel-item img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.booking {
+  border-radius: 1rem;
+}
+
+@media (min-width: 992px) {
+  .booking {
+    position: sticky;
+    top: 5.5rem;
+  }
+}
+
+.nav-tabs {
+  --bs-nav-tabs-link-active-color: var(--hz-primary);
+  --bs-nav-tabs-link-active-border-color: #dee2e6 #dee2e6 #fff;
+}
+
+.nav-tabs .nav-link {
+  color: #34465a;
+  font-weight: 600;
+}
+
+.nav-tabs .nav-link:hover {
+  color: var(--hz-primary);
+}
+
+.accordion {
+  --bs-accordion-active-bg: #e3f3f3;
+  --bs-accordion-active-color: var(--hz-primary-dark);
+  --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem rgba(11, 122, 124, 0.18);
+  --bs-accordion-border-radius: 0.75rem;
+  --bs-accordion-inner-border-radius: 0.75rem;
+}
+
+.accordion-button {
+  font-weight: 600;
+}
+
+.accordion-button:not(.collapsed)::after {
+  --bs-accordion-btn-icon-transform: rotate(-180deg);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23086163'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.list-group .step__num {
+  margin-bottom: 0;
+}
+
 /* --- Адаптивность --- */
 @media (max-width: 575.98px) {
   .hero {
@@ -369,6 +494,10 @@ html {
 
   .section-cta {
     margin-top: 3rem;
+  }
+
+  .page-head {
+    padding: 1.25rem 0 1.4rem;
   }
 }
 
