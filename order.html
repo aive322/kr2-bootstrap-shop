@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Оставьте заявку на подбор тура в турагентстве «Горизонт»: менеджер перезвонит в течение 15 минут и предложит 2–3 варианта.">
+  <title>Заявка на подбор тура — Горизонт</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+<body>
+  <!-- Верхняя полоса на всю ширину экрана: container-fluid -->
+  <div class="container-fluid topbar text-white small py-2">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+      <span><i class="bi bi-telephone me-1"></i><a class="text-white text-decoration-none fw-semibold" href="tel:+78005550123">+7 (800) 555-01-23</a>
+        <span class="d-none d-sm-inline opacity-75 ms-2">Ежедневно с 9:00 до 21:00</span></span>
+      <span class="d-none d-md-inline opacity-75"><i class="bi bi-credit-card me-1"></i>Рассрочка 0% на туры от 50&nbsp;000&nbsp;₽</span>
+    </div>
+  </div>
+
+  <nav class="navbar navbar-expand-lg bg-white sticky-top site-nav">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2 fw-bold" href="index.html">
+        <svg class="brand-logo" width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="17" fill="#0b7a7c"/><path d="M9 21a8 8 0 0 1 16 0z" fill="#f2a33a"/><path d="M6 21h22" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/><path d="M10 25h14" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".7"/></svg>
+        <span>Горизонт</span>
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#mainNavbar"
+        aria-controls="mainNavbar"
+        aria-expanded="false"
+        aria-label="Переключить навигацию"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Главная</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="catalog.html">Туры</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Направления</a>
+            <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="catalog.html?dest=turkey">Турция</a></li>
+            <li><a class="dropdown-item" href="catalog.html?dest=egypt">Египет</a></li>
+            <li><a class="dropdown-item" href="catalog.html?dest=italy">Италия</a></li>
+            <li><a class="dropdown-item" href="catalog.html?dest=thailand">Таиланд</a></li>
+            <li><a class="dropdown-item" href="catalog.html?dest=georgia">Грузия</a></li>
+            <li><a class="dropdown-item" href="catalog.html?dest=russia">Россия</a></li>
+            <li><a class="dropdown-item" href="catalog.html?dest=france">Франция</a></li>
+            <li><a class="dropdown-item" href="catalog.html?dest=uae">ОАЭ</a></li>
+            <li><a class="dropdown-item" href="catalog.html?dest=maldives">Мальдивы</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="catalog.html">Все туры</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#reviews">Отзывы</a>
+          </li>
+          <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+            <a class="btn btn-primary" href="order.html">Подобрать тур</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="page-head">
+      <div class="container">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb mb-2 small">
+        <li class="breadcrumb-item"><a href="index.html">Главная</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Заявка на тур</li>
+          </ol>
+        </nav>
+        <h1 class="h2 fw-bold mb-0">Заявка на подбор тура</h1>
+      <p class="text-muted mb-0 mt-2">Расскажите, куда и когда хотите поехать. Менеджер перезвонит в течение 15 минут в рабочее время</p>
+      </div>
+    </div>
+
+    <div class="container py-4 py-lg-5">
+      <div class="row g-4 g-xl-5">
+        <div class="col-12 col-lg-8">
+          <form id="orderForm" class="card border-0 shadow-sm p-3 p-md-4 needs-validation" novalidate data-success="Заявка отправлена. Менеджер свяжется с вами в течение 15 минут в рабочее время.">
+            <h2 class="h5 mb-3">Контакты</h2>
+            <div class="row g-3 mb-4">
+              <div class="col-12 col-md-6">
+                <label for="o-name" class="form-label">Ваше имя</label>
+                <input id="o-name" name="name" type="text" class="form-control" required minlength="2" autocomplete="name" placeholder="Иван Петров">
+                <div class="invalid-feedback">Введите имя (не менее 2 символов).</div>
+              </div>
+              <div class="col-12 col-md-6">
+                <label for="o-phone" class="form-label">Телефон</label>
+                <input id="o-phone" name="phone" type="tel" class="form-control" required pattern="\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}" autocomplete="tel" placeholder="+7 (900) 123-45-67">
+                <div class="invalid-feedback">Введите телефон полностью.</div>
+              </div>
+              <div class="col-12">
+                <label for="o-email" class="form-label">Электронная почта <span class="text-muted small">(необязательно)</span></label>
+                <input id="o-email" name="email" type="email" class="form-control" autocomplete="email" placeholder="name@example.com">
+                <div class="invalid-feedback">Проверьте адрес электронной почты.</div>
+              </div>
+            </div>
+
+            <h2 class="h5 mb-3">Параметры поездки</h2>
+            <div class="row g-3 mb-4">
+              <div class="col-12">
+                <label for="orderProduct" class="form-label">Тур</label>
+                <select id="orderProduct" name="product" class="form-select">
+                  <option value="">Подберите мне подходящий вариант</option>
+                  <optgroup label="Турция"><option value="antalya" data-place="Турция, Анталья" data-price="54900" data-nights="7" data-img="images/photos/antalya.jpg">Турция, Анталья, 7 ночей, от 54 900 ₽</option><option value="kemer" data-place="Турция, Кемер" data-price="62900" data-nights="7" data-img="images/photos/kemer.jpg">Турция, Кемер, 7 ночей, от 62 900 ₽</option><option value="istanbul" data-place="Турция, Стамбул" data-price="47900" data-nights="4" data-img="images/photos/istanbul.jpg">Турция, Стамбул, 4 ночи, от 47 900 ₽</option></optgroup>
+                  <optgroup label="Египет"><option value="sharm" data-place="Египет, Шарм-эль-Шейх" data-price="68500" data-nights="10" data-img="images/photos/sharm.jpg">Египет, Шарм-эль-Шейх, 10 ночей, от 68 500 ₽</option><option value="hurghada" data-place="Египет, Хургада" data-price="52900" data-nights="7" data-img="images/photos/hurghada.jpg">Египет, Хургада, 7 ночей, от 52 900 ₽</option></optgroup>
+                  <optgroup label="Италия"><option value="rome" data-place="Италия, Рим" data-price="79900" data-nights="4" data-img="images/photos/rome.jpg">Италия, Рим, 4 ночи, от 79 900 ₽</option><option value="venice" data-place="Италия, Венеция" data-price="84900" data-nights="4" data-img="images/photos/venice.jpg">Италия, Венеция, 4 ночи, от 84 900 ₽</option></optgroup>
+                  <optgroup label="Таиланд"><option value="phuket" data-place="Таиланд, Пхукет" data-price="109900" data-nights="10" data-img="images/photos/phuket.jpg">Таиланд, Пхукет, 10 ночей, от 109 900 ₽</option><option value="bangkok" data-place="Таиланд, Бангкок и Паттайя" data-price="96500" data-nights="9" data-img="images/photos/bangkok.jpg">Таиланд, Бангкок и Паттайя, 9 ночей, от 96 500 ₽</option></optgroup>
+                  <optgroup label="Грузия"><option value="tbilisi" data-place="Грузия, Тбилиси и Кахетия" data-price="42500" data-nights="5" data-img="images/photos/tbilisi.jpg">Грузия, Тбилиси и Кахетия, 5 ночей, от 42 500 ₽</option><option value="batumi" data-place="Грузия, Батуми" data-price="58700" data-nights="7" data-img="images/photos/batumi.jpg">Грузия, Батуми, 7 ночей, от 58 700 ₽</option></optgroup>
+                  <optgroup label="Россия"><option value="baikal" data-place="Россия, Байкал" data-price="64900" data-nights="6" data-img="images/photos/baikal.jpg">Россия, Байкал, 6 ночей, от 64 900 ₽</option><option value="spb" data-place="Россия, Санкт-Петербург" data-price="31900" data-nights="3" data-img="images/photos/spb.jpg">Россия, Санкт-Петербург, 3 ночи, от 31 900 ₽</option></optgroup>
+                  <optgroup label="Франция"><option value="paris" data-place="Франция, Париж" data-price="94900" data-nights="5" data-img="images/photos/paris.jpg">Франция, Париж, 5 ночей, от 94 900 ₽</option><option value="nice" data-place="Франция, Ницца и Лазурный берег" data-price="112900" data-nights="6" data-img="images/photos/nice.jpg">Франция, Ницца и Лазурный берег, 6 ночей, от 112 900 ₽</option></optgroup>
+                  <optgroup label="ОАЭ"><option value="dubai" data-place="ОАЭ, Дубай" data-price="89900" data-nights="7" data-img="images/photos/dubai.jpg">ОАЭ, Дубай, 7 ночей, от 89 900 ₽</option><option value="abudhabi" data-place="ОАЭ, Абу-Даби" data-price="97500" data-nights="6" data-img="images/photos/abudhabi.jpg">ОАЭ, Абу-Даби, 6 ночей, от 97 500 ₽</option></optgroup>
+                  <optgroup label="Мальдивы"><option value="maldives" data-place="Мальдивы" data-price="189900" data-nights="8" data-img="images/photos/maldives.jpg">Мальдивы, 8 ночей, от 189 900 ₽</option><option value="maldives2" data-place="Мальдивы, атолл Ари" data-price="139900" data-nights="7" data-img="images/photos/maldives2.jpg">Мальдивы, атолл Ари, 7 ночей, от 139 900 ₽</option></optgroup>
+                </select>
+              </div>
+              <div class="col-12 col-md-6">
+                <label for="o-date" class="form-label">Желаемая дата вылета</label>
+                <input id="o-date" name="date" type="date" class="form-control">
+              </div>
+              <div class="col-6 col-md-3">
+                <label for="o-adults" class="form-label">Взрослых</label>
+                <select id="o-adults" name="adults" class="form-select">
+                  <option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option>
+                </select>
+              </div>
+              <div class="col-6 col-md-3">
+                <label for="o-kids" class="form-label">Детей</label>
+                <select id="o-kids" name="children" class="form-select">
+                  <option selected>0</option><option>1</option><option>2</option><option>3</option>
+                </select>
+              </div>
+              <div class="col-12 col-md-6">
+                <label for="o-budget" class="form-label">Бюджет на всех</label>
+                <div class="input-group">
+                  <input id="o-budget" name="budget" type="number" min="0" step="1000" class="form-control" placeholder="150000">
+                  <span class="input-group-text">₽</span>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <span class="form-label d-block">Как с вами связаться</span>
+                <div class="d-flex flex-wrap gap-2" role="group" aria-label="Способ связи">
+                  <input type="radio" class="btn-check" name="contact" id="c-call" value="call" autocomplete="off" checked>
+                  <label class="btn btn-outline-primary" for="c-call">Звонок</label>
+                  <input type="radio" class="btn-check" name="contact" id="c-msg" value="messenger" autocomplete="off">
+                  <label class="btn btn-outline-primary" for="c-msg">Мессенджер</label>
+                  <input type="radio" class="btn-check" name="contact" id="c-mail" value="email" autocomplete="off">
+                  <label class="btn btn-outline-primary" for="c-mail">Почта</label>
+                </div>
+              </div>
+              <div class="col-12">
+                <label for="o-comment" class="form-label">Пожелания</label>
+                <textarea id="o-comment" name="comment" class="form-control" rows="4" maxlength="500" placeholder="Например: отель с песчаным пляжем, вылет из Санкт-Петербурга, нужен детский клуб"></textarea>
+              </div>
+            </div>
+
+            <div class="form-check mb-4">
+              <input id="o-consent" name="consent" type="checkbox" class="form-check-input" required>
+              <label for="o-consent" class="form-check-label small">Я согласен на обработку персональных данных и условия <a href="#">политики конфиденциальности</a></label>
+              <div class="invalid-feedback">Нужно ваше согласие.</div>
+            </div>
+            <div class="d-grid d-sm-block">
+              <button type="submit" class="btn btn-accent btn-lg px-5">Отправить заявку</button>
+            </div>
+          </form>
+        </div>
+
+        <aside class="col-12 col-lg-4">
+          <div class="card border-0 shadow-sm mb-4 overflow-hidden" id="tourSummary" hidden>
+            <img id="sumImg" src="images/photos/antalya.jpg" class="card-img-top" alt="" style="aspect-ratio: 3 / 2; object-fit: cover;">
+            <div class="card-body">
+              <p class="text-muted small mb-1">Выбранный тур</p>
+              <h3 class="h5 mb-1" id="sumPlace"></h3>
+              <p class="small text-muted mb-2" id="sumNights"></p>
+              <p class="mb-0"><span class="text-muted small">от</span> <span class="fs-4 fw-bold" id="sumPrice"></span> <span class="text-muted small">за человека</span></p>
+            </div>
+          </div>
+          <div class="card border-0 shadow-sm p-4">
+            <h2 class="h5 mb-3">Что будет дальше</h2>
+            <ol class="list-unstyled mb-0">
+              <li class="d-flex gap-3 mb-3"><span class="step__num flex-shrink-0">1</span><span>Менеджер перезвонит и уточнит даты, бюджет и пожелания.</span></li>
+              <li class="d-flex gap-3 mb-3"><span class="step__num flex-shrink-0">2</span><span>Предложит 2–3 тура и забронирует понравившийся на 24 часа.</span></li>
+              <li class="d-flex gap-3"><span class="step__num flex-shrink-0">3</span><span>Подпишем договор, зафиксируем цену и отправим документы на почту.</span></li>
+            </ol>
+            <hr>
+            <p class="small text-muted mb-1">Удобнее позвонить?</p>
+            <a class="fw-bold text-decoration-none" href="tel:+78005550123"><i class="bi bi-telephone me-1"></i>+7 (800) 555-01-23</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="siteToast" class="toast align-items-center text-bg-success border-0" role="status" aria-live="polite" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body"></div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Закрыть"></button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer pt-5 pb-4 mt-5">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-12 col-lg-4">
+          <a class="d-flex align-items-center gap-2 text-white text-decoration-none fw-bold fs-5 mb-3" href="index.html">
+            <svg class="brand-logo" width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="17" fill="#0b7a7c"/><path d="M9 21a8 8 0 0 1 16 0z" fill="#f2a33a"/><path d="M6 21h22" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/><path d="M10 25h14" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".7"/></svg>
+            <span>Горизонт</span>
+          </a>
+          <p class="mb-3">Подбираем пляжный отдых, экскурсионные поездки и города Европы под ключ. Работаем с проверенными туроператорами и отелями.</p>
+          <p class="mb-1"><i class="bi bi-telephone me-2"></i><a href="tel:+78005550123">+7 (800) 555-01-23</a></p>
+          <p class="mb-0"><i class="bi bi-envelope me-2"></i><a href="mailto:info@gorizont-tour.ru">info@gorizont-tour.ru</a></p>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <h2 class="h6 text-white mb-3">Направления</h2>
+          <ul class="list-unstyled mb-0">
+            <li class="mb-2"><a href="catalog.html?dest=turkey">Турция</a></li>
+            <li class="mb-2"><a href="catalog.html?dest=egypt">Египет</a></li>
+            <li class="mb-2"><a href="catalog.html?dest=italy">Италия</a></li>
+            <li class="mb-2"><a href="catalog.html?dest=thailand">Таиланд</a></li>
+            <li><a href="catalog.html?dest=maldives">Мальдивы</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <h2 class="h6 text-white mb-3">Компания</h2>
+          <ul class="list-unstyled mb-0">
+            <li class="mb-2"><a href="index.html#why">О нас</a></li>
+            <li class="mb-2"><a href="index.html#reviews">Отзывы</a></li>
+            <li class="mb-2"><a href="order.html">Подобрать тур</a></li>
+            <li><a href="catalog.html">Все туры</a></li>
+          </ul>
+        </div>
+        <div class="col-12 col-md-4 col-lg-4">
+          <h2 class="h6 text-white mb-3">Режим работы</h2>
+          <p class="mb-1">Пн–Пт: 9:00–21:00</p>
+          <p class="mb-3">Сб–Вс: 10:00–19:00</p>
+          <p class="mb-0">г. Москва, Тверская ул., 18, офис 4</p>
+        </div>
+      </div>
+      <hr class="border-secondary my-4">
+      <div class="d-flex flex-wrap justify-content-between gap-2 small">
+        <span>&copy; 2026 Турагентство «Горизонт». Все права защищены.</span>
+        <span><a href="#">Политика конфиденциальности</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+  </script>
+  <script src="js/main.js"></script>
+</body>
+</html>

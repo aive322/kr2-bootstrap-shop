@@ -9,3 +9,6 @@ Thumbs.db
 # Зависимости и логи
 node_modules/
 *.log
+
+# Служебный скрипт загрузки фото
+download-photos.ps1
