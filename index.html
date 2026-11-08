@@ -3,37 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Горизонт — турагентство: пляжный отдых, экскурсионные туры и поездки по Европе под ключ.">
-  <title>Горизонт — турагентство</title>
+  <meta name="description" content="Турагентство «Горизонт»: пляжный отдых, экскурсионные туры и поездки по Европе под ключ. Цена по договору, рассрочка 0%.">
+  <title>Горизонт — турагентство: туры в Турцию, Египет, Италию, Таиланд</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
     rel="stylesheet"
   >
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="css/custom.css">
 </head>
 <body>
-  <!-- Узкая полоса на всю ширину экрана: container-fluid -->
-  <div class="container-fluid bg-dark text-white text-center small py-1">
-    Горящие туры со скидкой до 25% — бронируйте до конца месяца
+  <!-- Верхняя полоса на всю ширину экрана: container-fluid -->
+  <div class="container-fluid topbar text-white small py-2">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+      <span><i class="bi bi-telephone me-1"></i><a class="text-white text-decoration-none fw-semibold" href="tel:+78005550123">+7 (800) 555-01-23</a>
+        <span class="d-none d-sm-inline opacity-75 ms-2">Ежедневно с 9:00 до 21:00</span></span>
+      <span class="d-none d-md-inline opacity-75"><i class="bi bi-credit-card me-1"></i>Рассрочка 0% на туры от 50&nbsp;000&nbsp;₽</span>
+    </div>
   </div>
 
-  <header class="bg-primary text-white py-4">
+  <nav class="navbar navbar-expand-lg bg-white sticky-top site-nav">
     <div class="container">
-      <div class="row align-items-center">
-        <div class="col-12 col-md-8">
-          <h1 class="h3 mb-1">Горизонт</h1>
-          <p class="mb-0 opacity-75">Турагентство: путешествия под ключ</p>
-        </div>
-        <div class="col-12 col-md-4 text-md-end mt-3 mt-md-0">
-          <span class="badge bg-light text-primary">КР №2</span>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">Горизонт</a>
+      <a class="navbar-brand d-flex align-items-center gap-2 fw-bold" href="index.html">
+        <svg class="brand-logo" width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="17" fill="#0b7a7c"/><path d="M9 21a8 8 0 0 1 16 0z" fill="#f2a33a"/><path d="M6 21h22" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/><path d="M10 25h14" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".7"/></svg>
+        <span>Горизонт</span>
+      </a>
       <button
         class="navbar-toggler"
         type="button"
@@ -46,7 +43,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="mainNavbar">
-        <ul class="navbar-nav ms-auto">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="index.html">Главная</a>
           </li>
@@ -54,10 +51,13 @@
             <a class="nav-link" href="catalog.html">Туры</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="product.html">Тур</a>
+            <a class="nav-link" href="index.html#destinations">Направления</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="order.html">Заявка</a>
+            <a class="nav-link" href="index.html#reviews">Отзывы</a>
+          </li>
+          <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+            <a class="btn btn-primary" href="order.html">Подобрать тур</a>
           </li>
         </ul>
       </div>
@@ -65,109 +65,394 @@
   </nav>
 
   <main>
-    <!-- Hero-блок: две колонки на больших экранах, одна на малых -->
-    <section class="container my-5">
-      <div class="row align-items-center g-4">
-        <div class="col-12 col-lg-6">
-          <h2 class="display-5 fw-bold">Путешествия, которые запоминаются</h2>
-          <p class="lead text-muted">
-            Подберём тур под ваш бюджет: пляжный отдых, экскурсионные поездки
-            и города Европы. Всё организуем под ключ.
-          </p>
-          <a class="btn btn-primary btn-lg" href="catalog.html">Смотреть туры</a>
-          <a class="btn btn-outline-secondary btn-lg ms-2" href="#popular">Популярные туры</a>
+    <!-- Hero-блок: фото, заголовок и форма поиска тура на сетке -->
+    <section class="hero">
+      <img class="hero__bg" src="images/photos/hero.jpg" alt="">
+      <div class="container hero__content py-5">
+        <div class="row">
+          <div class="col-12 col-lg-8 col-xl-7">
+            <p class="hero__eyebrow mb-2">Турагентство «Горизонт»</p>
+            <h1 class="display-4 fw-bold mb-3">Путешествия, о которых вы мечтали</h1>
+            <p class="lead mb-4">Подберём тур под ваш бюджет: пляжный отдых, экскурсионные поездки и города Европы. Цена фиксируется в договоре.</p>
+          </div>
         </div>
-        <div class="col-12 col-lg-6">
-          <img src="images/photos/hero.jpg" class="img-fluid rounded shadow-sm photo-cover" alt="Пальмы и бирюзовое море на тропическом пляже">
-        </div>
+
+        <form class="search-card mt-3" action="catalog.html" method="get">
+          <div class="row g-2 align-items-end">
+            <div class="col-12 col-md-6 col-lg-3">
+              <label for="search-dest" class="form-label small fw-semibold">Куда</label>
+              <select id="search-dest" name="dest" class="form-select">
+                <option value="">Любое направление</option>
+                <option value="turkey">Турция</option>
+                <option value="egypt">Египет</option>
+                <option value="italy">Италия</option>
+                <option value="thailand">Таиланд</option>
+                <option value="georgia">Грузия</option>
+                <option value="russia">Россия</option>
+                <option value="france">Франция</option>
+                <option value="uae">ОАЭ</option>
+                <option value="maldives">Мальдивы</option>
+              </select>
+            </div>
+            <div class="col-6 col-lg-3">
+              <label for="search-month" class="form-label small fw-semibold">Когда</label>
+              <select id="search-month" name="month" class="form-select">
+                <option value="">Любой месяц</option>
+                <option>Декабрь 2026</option>
+                <option>Январь 2027</option>
+                <option>Февраль 2027</option>
+                <option>Март 2027</option>
+              </select>
+            </div>
+            <div class="col-6 col-lg-2">
+              <label for="search-nights" class="form-label small fw-semibold">Ночей</label>
+              <select id="search-nights" name="nights" class="form-select">
+                <option value="">Любое</option>
+                <option value="short">4–7</option>
+                <option value="mid">8–10</option>
+                <option value="long">11–14</option>
+              </select>
+            </div>
+            <div class="col-6 col-lg-2">
+              <label for="search-guests" class="form-label small fw-semibold">Туристов</label>
+              <select id="search-guests" name="guests" class="form-select">
+                <option>1</option>
+                <option selected>2</option>
+                <option>3</option>
+                <option>4</option>
+              </select>
+            </div>
+            <div class="col-6 col-lg-2 d-grid">
+              <button class="btn btn-primary" type="submit"><i class="bi bi-search me-1"></i>Найти тур</button>
+            </div>
+          </div>
+        </form>
       </div>
     </section>
 
-    <!-- Преимущества: три колонки на md и выше -->
-    <section class="container my-5">
-      <h2 class="text-center mb-4">Почему выбирают нас</h2>
-      <div class="row g-4">
-        <div class="col-12 col-md-4">
-          <div class="p-4 border rounded h-100 bg-white">
-            <h3 class="h5">Честные цены</h3>
-            <p class="mb-0 text-muted">Стоимость тура фиксируется в договоре, без скрытых доплат.</p>
-          </div>
-        </div>
-        <div class="col-12 col-md-4">
-          <div class="p-4 border rounded h-100 bg-white">
-            <h3 class="h5">Проверенные отели</h3>
-            <p class="mb-0 text-muted">Работаем с отелями и перевозчиками, которых знаем лично.</p>
-          </div>
-        </div>
-        <div class="col-12 col-md-4">
-          <div class="p-4 border rounded h-100 bg-white">
-            <h3 class="h5">Поддержка 24/7</h3>
-            <p class="mb-0 text-muted">Менеджер на связи до конца поездки и поможет в любой ситуации.</p>
-          </div>
-        </div>
+    <!-- Цифры компании -->
+    <section class="container">
+      <div class="row g-0 stats text-center">
+        <div class="col-6 col-md-3 stats__item"><strong class="d-block fs-3">12 лет</strong><span class="text-muted small">на рынке туризма</span></div>
+        <div class="col-6 col-md-3 stats__item"><strong class="d-block fs-3">25 000+</strong><span class="text-muted small">довольных туристов</span></div>
+        <div class="col-6 col-md-3 stats__item"><strong class="d-block fs-3">40 стран</strong><span class="text-muted small">в каталоге направлений</span></div>
+        <div class="col-6 col-md-3 stats__item"><strong class="d-block fs-3">4,8 из 5</strong><span class="text-muted small">средняя оценка</span></div>
       </div>
     </section>
 
     <!-- Популярные туры: 1 / 2 / 3 колонки -->
-    <section class="container my-5" id="popular">
-      <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2 class="mb-0">Популярные туры</h2>
-        <a class="btn btn-outline-primary" href="catalog.html">Все туры</a>
+    <section class="container section" id="popular">
+      <div class="d-flex flex-wrap justify-content-between align-items-end gap-2 mb-4">
+        <div>
+          <h2 class="section-title mb-1">Популярные туры</h2>
+          <p class="text-muted mb-0">Туры, которые чаще всего выбирают наши клиенты</p>
+        </div>
+        <a class="btn btn-outline-primary" href="catalog.html">Все туры<i class="bi bi-arrow-right ms-1"></i></a>
       </div>
       <div class="row g-4">
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="border rounded h-100 p-4">
-            <img src="images/photos/rome.jpg" class="img-fluid rounded mb-3 photo-cover" alt="Колизей в Риме на закате">
-            <span class="badge bg-success mb-3">Новинка</span>
-            <h3 class="h5">Италия, Рим</h3>
-            <p class="text-muted">Экскурсионный тур: 5 дней, перелёт и отель в центре города.</p>
-            <p class="fw-bold mb-3">от 79 900 руб.</p>
-            <a class="btn btn-primary" href="product.html">Подробнее</a>
+      <div class="col-12 col-md-6 col-lg-4">
+        <article class="card tour-card h-100 border-0 shadow-sm">
+          <div class="position-relative">
+            <img src="images/photos/antalya.jpg" class="card-img-top" alt="Песчаный пляж и горы в Анталье" loading="lazy">
+            <span class="badge bg-warning text-dark tour-card__label">Хит</span>
+          </div>
+          <div class="card-body d-flex flex-column">
+            <p class="text-muted small mb-1"><i class="bi bi-geo-alt me-1"></i>Турция, Анталья</p>
+            <h3 class="h5 card-title"><a class="text-reset text-decoration-none" href="product.html">Анталья: пляжный отдых «всё включено»</a></h3>
+            <p class="small text-muted mb-2">7&nbsp;ночей &middot; отель 5&#9733; &middot; Всё включено</p>
+            <p class="small mb-3"><i class="bi bi-star-fill text-warning"></i> <strong>4.8</strong> <span class="text-muted">(126 отзывов)</span></p>
+            <div class="mt-auto">
+              <p class="mb-3"><span class="text-muted small">от</span> <span class="fs-4 fw-bold ">54 900 ₽</span>
+                <span class="text-muted small d-block">за человека</span></p>
+              <div class="d-flex gap-2">
+                <a class="btn btn-primary" href="product.html">Подробнее</a>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <article class="card tour-card h-100 border-0 shadow-sm">
+          <div class="position-relative">
+            <img src="images/photos/rome.jpg" class="card-img-top" alt="Колизей в Риме на закате" loading="lazy">
+            <span class="badge bg-success tour-card__label">Новинка</span>
+          </div>
+          <div class="card-body d-flex flex-column">
+            <p class="text-muted small mb-1"><i class="bi bi-geo-alt me-1"></i>Италия, Рим</p>
+            <h3 class="h5 card-title"><a class="text-reset text-decoration-none" href="product-3.html">Рим: вечный город за 5 дней</a></h3>
+            <p class="small text-muted mb-2">4&nbsp;ночи &middot; отель 4&#9733; &middot; Завтраки</p>
+            <p class="small mb-3"><i class="bi bi-star-fill text-warning"></i> <strong>4.9</strong> <span class="text-muted">(54 отзывов)</span></p>
+            <div class="mt-auto">
+              <p class="mb-3"><span class="text-muted small">от</span> <span class="fs-4 fw-bold ">79 900 ₽</span>
+                <span class="text-muted small d-block">за человека</span></p>
+              <div class="d-flex gap-2">
+                <a class="btn btn-primary" href="product-3.html">Подробнее</a>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <article class="card tour-card h-100 border-0 shadow-sm">
+          <div class="position-relative">
+            <img src="images/photos/sharm.jpg" class="card-img-top" alt="Пляж с пальмами и зонтиками в Шарм-эль-Шейхе" loading="lazy">
+            <span class="badge bg-danger tour-card__label">Горящий тур</span>
+          </div>
+          <div class="card-body d-flex flex-column">
+            <p class="text-muted small mb-1"><i class="bi bi-geo-alt me-1"></i>Египет, Шарм-эль-Шейх</p>
+            <h3 class="h5 card-title"><a class="text-reset text-decoration-none" href="product-2.html">Шарм-эль-Шейх: Красное море и коралловые рифы</a></h3>
+            <p class="small text-muted mb-2">10&nbsp;ночей &middot; отель 4&#9733; &middot; Всё включено</p>
+            <p class="small mb-3"><i class="bi bi-star-fill text-warning"></i> <strong>4.7</strong> <span class="text-muted">(98 отзывов)</span></p>
+            <div class="mt-auto">
+              <p class="mb-3"><span class="text-muted small">от</span> <span class="fs-4 fw-bold text-danger">68 500 ₽</span><s class="text-muted small ms-2">78 500 ₽</s>
+                <span class="text-muted small d-block">за человека</span></p>
+              <div class="d-flex gap-2">
+                <a class="btn btn-primary" href="product-2.html">Подробнее</a>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+      </div>
+    </section>
+
+    <!-- Преимущества: четыре колонки на lg, две на sm, одна на xs -->
+    <section class="section section--tint" id="why">
+      <div class="container">
+        <h2 class="section-title text-center mb-5">Почему выбирают «Горизонт»</h2>
+        <div class="row g-4">
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="feature h-100">
+            <span class="feature__icon"><i class="bi bi-shield-check"></i></span>
+            <h3 class="h5">Цена по договору</h3>
+            <p class="mb-0 text-muted">Стоимость тура фиксируется в договоре. Никаких скрытых доплат после оплаты.</p>
           </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="border rounded h-100 p-4">
-            <img src="images/photos/antalya.jpg" class="img-fluid rounded mb-3 photo-cover" alt="Песчаный пляж и горы в Анталье">
-            <span class="badge bg-warning text-dark mb-3">Хит</span>
-            <h3 class="h5">Турция, Анталья</h3>
-            <p class="text-muted">7 ночей, отель 5 звёзд, питание «всё включено».</p>
-            <p class="fw-bold mb-3">от 54 900 руб.</p>
-            <a class="btn btn-primary" href="product.html">Подробнее</a>
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="feature h-100">
+            <span class="feature__icon"><i class="bi bi-building-check"></i></span>
+            <h3 class="h5">Проверенные отели</h3>
+            <p class="mb-0 text-muted">Работаем с отелями и перевозчиками, которых знаем лично, и следим за их качеством.</p>
           </div>
         </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="feature h-100">
+            <span class="feature__icon"><i class="bi bi-headset"></i></span>
+            <h3 class="h5">Поддержка 24/7</h3>
+            <p class="mb-0 text-muted">Менеджер на связи до конца поездки и решит любой вопрос в пути.</p>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="feature h-100">
+            <span class="feature__icon"><i class="bi bi-credit-card-2-front"></i></span>
+            <h3 class="h5">Оплата частями</h3>
+            <p class="mb-0 text-muted">Рассрочка 0% на туры от 50 000 ₽. Бронь без предоплаты на 24 часа.</p>
+          </div>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Направления: плитки на сетке 2 / 3 колонки -->
+    <section class="container section" id="destinations">
+      <div class="d-flex flex-wrap justify-content-between align-items-end gap-2 mb-4">
+        <div>
+          <h2 class="section-title mb-1">Популярные направления</h2>
+          <p class="text-muted mb-0">Выберите страну, и мы покажем лучшие туры</p>
+        </div>
+      </div>
+      <div class="row g-3">
+      <div class="col-6 col-lg-4">
+        <a class="dest" href="catalog.html">
+          <img src="images/photos/antalya.jpg" alt="Песчаный пляж и горы в Анталье" loading="lazy">
+          <span class="dest__text"><strong class="d-block fs-5">Турция</strong><span class="small">от 54 900 ₽</span></span>
+        </a>
+      </div>
+      <div class="col-6 col-lg-4">
+        <a class="dest" href="catalog.html">
+          <img src="images/photos/sharm.jpg" alt="Пляж с пальмами и зонтиками в Шарм-эль-Шейхе" loading="lazy">
+          <span class="dest__text"><strong class="d-block fs-5">Египет</strong><span class="small">от 68 500 ₽</span></span>
+        </a>
+      </div>
+      <div class="col-6 col-lg-4">
+        <a class="dest" href="catalog.html">
+          <img src="images/photos/rome.jpg" alt="Колизей в Риме на закате" loading="lazy">
+          <span class="dest__text"><strong class="d-block fs-5">Италия</strong><span class="small">от 79 900 ₽</span></span>
+        </a>
+      </div>
+      <div class="col-6 col-lg-4">
+        <a class="dest" href="catalog.html">
+          <img src="images/photos/phuket.jpg" alt="Лодки у скал на пляже Пхукета" loading="lazy">
+          <span class="dest__text"><strong class="d-block fs-5">Таиланд</strong><span class="small">от 109 900 ₽</span></span>
+        </a>
+      </div>
+      <div class="col-6 col-lg-4">
+        <a class="dest" href="catalog.html">
+          <img src="images/photos/tbilisi.jpg" alt="Старый город Тбилиси с высоты" loading="lazy">
+          <span class="dest__text"><strong class="d-block fs-5">Грузия</strong><span class="small">от 42 500 ₽</span></span>
+        </a>
+      </div>
+      <div class="col-6 col-lg-4">
+        <a class="dest" href="catalog.html">
+          <img src="images/photos/maldives.jpg" alt="Виллы на воде на Мальдивах" loading="lazy">
+          <span class="dest__text"><strong class="d-block fs-5">Мальдивы</strong><span class="small">от 189 900 ₽</span></span>
+        </a>
+      </div>
+      </div>
+    </section>
+
+    <!-- Как мы работаем -->
+    <section class="section section--tint">
+      <div class="container">
+        <h2 class="section-title text-center mb-5">Как мы работаем</h2>
+        <div class="row g-4">
+        <div class="col-12 col-md-4">
+          <div class="step h-100">
+            <span class="step__num">1</span>
+            <h3 class="h5">Оставляете заявку</h3>
+            <p class="mb-0 text-muted">Расскажите, куда и когда хотите поехать. Это займёт две минуты.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="step h-100">
+            <span class="step__num">2</span>
+            <h3 class="h5">Мы подбираем варианты</h3>
+            <p class="mb-0 text-muted">Менеджер предложит 2–3 тура под ваш бюджет и пожелания в течение дня.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="step h-100">
+            <span class="step__num">3</span>
+            <h3 class="h5">Подписываем договор</h3>
+            <p class="mb-0 text-muted">Фиксируем цену, оплачиваем удобным способом и получаем документы на почту.</p>
+          </div>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Отзывы -->
+    <section class="container section" id="reviews">
+      <h2 class="section-title text-center mb-5">Отзывы наших туристов</h2>
+      <div class="row g-4">
         <div class="col-12 col-md-6 col-lg-4">
-          <div class="border rounded h-100 p-4">
-            <img src="images/photos/sharm.jpg" class="img-fluid rounded mb-3 photo-cover" alt="Пляж с пальмами и зонтиками в Шарм-эль-Шейхе">
-            <span class="badge bg-danger mb-3">Скидка</span>
-            <h3 class="h5">Египет, Шарм-эль-Шейх</h3>
-            <p class="text-muted">10 ночей у Красного моря, трансфер включён.</p>
-            <p class="fw-bold mb-3">
-              <span class="text-danger">от 68 500 руб.</span>
-              <s class="text-muted small ms-1">78 500 руб.</s>
-            </p>
-            <a class="btn btn-primary" href="product.html">Подробнее</a>
+          <figure class="review h-100">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <span class="avatar">АК</span>
+              <div>
+                <strong class="d-block">Анна К.</strong>
+                <span class="small text-muted">Турция, Анталья</span>
+              </div>
+            </div>
+            <p class="mb-2 text-warning" role="img" aria-label="Оценка 5 из 5"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></p>
+            <blockquote class="mb-0">Всё организовали за один день: подобрали отель с песчаным пляжем, помогли с трансфером. В поездке ни одной проблемы.</blockquote>
+          </figure>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <figure class="review h-100">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <span class="avatar">ДС</span>
+              <div>
+                <strong class="d-block">Дмитрий С.</strong>
+                <span class="small text-muted">Италия, Рим</span>
+              </div>
+            </div>
+            <p class="mb-2 text-warning" role="img" aria-label="Оценка 5 из 5"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></p>
+            <blockquote class="mb-0">Экскурсии продуманы до мелочей, гид отличный. Отель в центре, до Колизея десять минут пешком.</blockquote>
+          </figure>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <figure class="review h-100">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <span class="avatar">МП</span>
+              <div>
+                <strong class="d-block">Мария П.</strong>
+                <span class="small text-muted">Египет, Шарм-эль-Шейх</span>
+              </div>
+            </div>
+            <p class="mb-2 text-warning" role="img" aria-label="Оценка 4 из 5"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i></p>
+            <blockquote class="mb-0">Цена оказалась ниже, чем у конкурентов, при этом отель отличный. Единственное, хотелось бы чуть больше экскурсий в пакете.</blockquote>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Призыв к действию -->
+    <section class="container section-cta">
+      <div class="cta rounded-4 p-4 p-lg-5">
+        <div class="row align-items-center g-4">
+          <div class="col-12 col-lg-6">
+            <h2 class="h2 mb-2">Не знаете, куда поехать?</h2>
+            <p class="mb-0 opacity-75">Оставьте телефон, и менеджер подберёт тур под ваш бюджет и даты. Перезвоним в течение 15 минут в рабочее время.</p>
+          </div>
+          <div class="col-12 col-lg-6">
+            <form class="row g-2" action="order.html" method="get">
+              <div class="col-12 col-sm-5">
+                <label for="cta-name" class="visually-hidden">Ваше имя</label>
+                <input id="cta-name" name="name" type="text" class="form-control form-control-lg" placeholder="Ваше имя" autocomplete="name">
+              </div>
+              <div class="col-12 col-sm-7">
+                <label for="cta-phone" class="visually-hidden">Телефон</label>
+                <input id="cta-phone" name="phone" type="tel" class="form-control form-control-lg" placeholder="+7 (___) ___-__-__" autocomplete="tel">
+              </div>
+              <div class="col-12 d-grid">
+                <button class="btn btn-accent btn-lg" type="submit">Перезвоните мне</button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="bg-dark text-white py-4 mt-5">
+  <footer class="site-footer pt-5 pb-4 mt-5">
     <div class="container">
-      <div class="row align-items-center g-3">
-        <div class="col-12 col-md-6">
-          <p class="mb-0">&copy; 2026 Горизонт. Учебный проект.</p>
+      <div class="row g-4">
+        <div class="col-12 col-lg-4">
+          <a class="d-flex align-items-center gap-2 text-white text-decoration-none fw-bold fs-5 mb-3" href="index.html">
+            <svg class="brand-logo" width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="17" fill="#0b7a7c"/><path d="M9 21a8 8 0 0 1 16 0z" fill="#f2a33a"/><path d="M6 21h22" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/><path d="M10 25h14" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".7"/></svg>
+            <span>Горизонт</span>
+          </a>
+          <p class="mb-3">Подбираем пляжный отдых, экскурсионные поездки и города Европы под ключ. Работаем с проверенными туроператорами и отелями.</p>
+          <p class="mb-1"><i class="bi bi-telephone me-2"></i><a href="tel:+78005550123">+7 (800) 555-01-23</a></p>
+          <p class="mb-0"><i class="bi bi-envelope me-2"></i><a href="mailto:info@gorizont-tour.ru">info@gorizont-tour.ru</a></p>
         </div>
-        <div class="col-12 col-md-6 text-md-end">
-          <a class="text-white text-decoration-none me-3" href="catalog.html">Туры</a>
-          <a class="text-white text-decoration-none" href="order.html">Заявка</a>
+        <div class="col-6 col-md-4 col-lg-2">
+          <h2 class="h6 text-white mb-3">Направления</h2>
+          <ul class="list-unstyled mb-0">
+            <li class="mb-2"><a href="catalog.html">Турция</a></li>
+            <li class="mb-2"><a href="catalog.html">Египет</a></li>
+            <li class="mb-2"><a href="catalog.html">Италия</a></li>
+            <li class="mb-2"><a href="catalog.html">Таиланд</a></li>
+            <li><a href="catalog.html">Мальдивы</a></li>
+          </ul>
         </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <h2 class="h6 text-white mb-3">Компания</h2>
+          <ul class="list-unstyled mb-0">
+            <li class="mb-2"><a href="index.html#why">О нас</a></li>
+            <li class="mb-2"><a href="index.html#reviews">Отзывы</a></li>
+            <li class="mb-2"><a href="order.html">Подобрать тур</a></li>
+            <li><a href="catalog.html">Все туры</a></li>
+          </ul>
+        </div>
+        <div class="col-12 col-md-4 col-lg-4">
+          <h2 class="h6 text-white mb-3">Режим работы</h2>
+          <p class="mb-1">Пн–Пт: 9:00–21:00</p>
+          <p class="mb-3">Сб–Вс: 10:00–19:00</p>
+          <p class="mb-0">г. Москва, Тверская ул., 18, офис 4</p>
+        </div>
+      </div>
+      <hr class="border-secondary my-4">
+      <div class="d-flex flex-wrap justify-content-between gap-2 small">
+        <span>&copy; 2026 Турагентство «Горизонт». Все права защищены.</span>
+        <span><a href="#">Политика конфиденциальности</a></span>
       </div>
     </div>
   </footer>
 
   <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
   </script>
 </body>
 </html>
