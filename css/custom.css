@@ -511,3 +511,9 @@ html {
     transition: none;
   }
 }
+
+/* Страница политики конфиденциальности */
+.policy section[id] { scroll-margin-top: 100px; }
+.policy ul { padding-left: 1.25rem; }
+.policy li { margin-bottom: .35rem; }
+.policy p { color: #3d4b5c; }
