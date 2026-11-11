@@ -77,6 +77,7 @@
         return;
       }
       var message = form.getAttribute('data-success') || 'Заявка отправлена.';
+      if (form.hasAttribute('data-order') && window.HZ_APP) message += window.HZ_APP.saveOrder(form);
       var modalEl = form.closest('.modal');
       form.reset();
       form.classList.remove('was-validated');
@@ -227,7 +228,7 @@
   if (reviewList) {
     var RPAGE = 12;
     var rform = $('#reviewFilter');
-    var rcols = $$('.review-col', reviewList);
+    var rcols = function () { return $$('.review-col', reviewList); };
     var rpager = $('#reviewPager');
     var rcount = $('#reviewCount');
     var rempty = $('#reviewEmpty');
@@ -237,12 +238,12 @@
       var dest = $('#r-dest').value;
       var starsEl = $('input[name="stars"]:checked', rform);
       var stars = starsEl ? starsEl.value : '';
-      var found = rcols.filter(function (c) {
+      var found = rcols().filter(function (c) {
         return (!dest || c.getAttribute('data-dest') === dest) && (!stars || c.getAttribute('data-stars') === stars);
       });
       var pages = Math.max(1, Math.ceil(found.length / RPAGE));
       if (rpage > pages) rpage = pages;
-      rcols.forEach(function (c) { c.classList.add('d-none'); });
+      rcols().forEach(function (c) { c.classList.add('d-none'); });
       found.slice((rpage - 1) * RPAGE, rpage * RPAGE).forEach(function (c) { c.classList.remove('d-none'); });
       rcount.textContent = 'Найдено: ' + found.length + ' ' + plural(found.length, 'отзыв', 'отзыва', 'отзывов');
       rempty.hidden = found.length > 0;

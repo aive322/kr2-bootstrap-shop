@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Личный кабинет туриста: ваши заявки, избранные туры и отзывы. Вход и регистрация по электронной почте.">
+  <meta name="color-scheme" content="light dark">
+  <title>Личный кабинет — турагентство «Горизонт»</title>
+  <script>try{var t=localStorage.getItem('hz_theme');document.documentElement.setAttribute('data-bs-theme',t==='dark'?'dark':'light')}catch(e){}</script>
+  <link rel="stylesheet" href="vendor/manrope/manrope.css">
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="vendor/bootstrap-icons/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+<body>
+  <!-- Верхняя полоса на всю ширину экрана: container-fluid -->
+  <div class="container-fluid topbar text-white small py-2">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+      <span><i class="bi bi-telephone me-1"></i><a class="text-white text-decoration-none fw-semibold" href="tel:+78005550123">+7 (800) 555-01-23</a>
+        <span class="d-none d-sm-inline opacity-75 ms-2">Пн–Пт 9:00–21:00, Сб–Вс 10:00–19:00</span></span>
+      <span class="d-none d-md-inline opacity-75"><i class="bi bi-credit-card me-1"></i>Рассрочка 0% на туры от 50&nbsp;000&nbsp;₽</span>
+    </div>
+  </div>
+
+  <nav class="navbar navbar-expand-lg bg-body sticky-top site-nav">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2 fw-bold" href="index.html">
+        <svg class="brand-logo" width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="17" fill="#0b7a7c"/><path d="M9 21a8 8 0 0 1 16 0z" fill="#f2a33a"/><path d="M6 21h22" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/><path d="M10 25h14" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".7"/></svg>
+        <span>Горизонт</span>
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#mainNavbar"
+        aria-controls="mainNavbar"
+        aria-expanded="false"
+        aria-label="Переключить навигацию"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Главная</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="catalog.html">Туры</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">О компании</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contacts.html">Контакты</a>
+          </li>
+          <li class="nav-item ms-lg-2 mt-2 mt-lg-0 d-flex align-items-center gap-1 nav-tools">
+            <button class="nav-tool" type="button" data-bs-toggle="modal" data-bs-target="#searchModal" aria-label="Поиск по сайту" title="Поиск"><i class="bi bi-search"></i></button>
+            <a class="nav-tool" href="account.html#favorites" aria-label="Избранные туры" title="Избранное"><i class="bi bi-heart"></i><span class="nav-tool__badge" id="favCount" hidden>0</span></a>
+            <a class="nav-tool" id="accountLink" href="account.html" aria-label="Личный кабинет" title="Личный кабинет"><i class="bi bi-person"></i></a>
+            <button class="nav-tool" id="themeToggle" type="button" aria-label="Включить тёмную тему" title="Тёмная тема"><i class="bi bi-moon-stars"></i></button>
+          </li>
+          <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+            <a class="btn btn-primary" href="order.html">Подобрать тур</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main id="accountPage">
+    <div class="page-head">
+      <div class="container">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb mb-2 small">
+        <li class="breadcrumb-item"><a href="index.html">Главная</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Личный кабинет</li>
+          </ol>
+        </nav>
+        <h1 class="h2 fw-bold mb-0">Личный кабинет</h1>
+      <p class="text-muted mb-0 mt-2">Заявки, избранные туры и отзывы — всё в одном месте</p>
+      </div>
+    </div>
+
+    <div class="container py-4 py-lg-5">
+
+      <!-- Гость: вход и регистрация -->
+      <section id="authView" aria-labelledby="auth-title">
+        <div class="card border-0 shadow-sm auth-card">
+          <div class="card-body p-4">
+            <h2 id="auth-title" class="h4 mb-1">Войдите в кабинет</h2>
+            <p class="text-muted small mb-3">Так вы сможете следить за заявками, хранить избранные туры и оставлять отзывы.</p>
+            <div id="authAlert" class="alert alert-danger py-2" role="alert" hidden></div>
+            <ul class="nav nav-tabs mb-3" id="authTabs" role="tablist">
+              <li class="nav-item" role="presentation"><button class="nav-link active" id="tab-login" data-bs-toggle="tab" data-bs-target="#pane-login" type="button" role="tab" aria-controls="pane-login" aria-selected="true">Вход</button></li>
+              <li class="nav-item" role="presentation"><button class="nav-link" id="tab-register" data-bs-toggle="tab" data-bs-target="#pane-register" type="button" role="tab" aria-controls="pane-register" aria-selected="false">Регистрация</button></li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane fade show active" id="pane-login" role="tabpanel" aria-labelledby="tab-login" tabindex="0">
+                <form id="loginForm" novalidate data-no-prefill>
+                  <div class="mb-3">
+                    <label for="l-email" class="form-label">Электронная почта</label>
+                    <input id="l-email" name="email" type="email" class="form-control" required autocomplete="email" placeholder="name@example.com">
+                    <div class="invalid-feedback">Введите корректный адрес почты.</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="l-pass" class="form-label">Пароль</label>
+                    <input id="l-pass" name="password" type="password" class="form-control" required autocomplete="current-password">
+                    <div class="invalid-feedback">Введите пароль.</div>
+                  </div>
+                  <div class="d-grid"><button type="submit" class="btn btn-primary btn-lg">Войти</button></div>
+                </form>
+              </div>
+              <div class="tab-pane fade" id="pane-register" role="tabpanel" aria-labelledby="tab-register" tabindex="0">
+                <form id="registerForm" novalidate data-no-prefill>
+                  <div class="mb-3">
+                    <label for="g-name" class="form-label">Ваше имя</label>
+                    <input id="g-name" name="name" type="text" class="form-control" required minlength="2" autocomplete="name" placeholder="Иван Петров">
+                    <div class="invalid-feedback">Введите имя (не менее 2 символов).</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="g-email" class="form-label">Электронная почта</label>
+                    <input id="g-email" name="email" type="email" class="form-control" required autocomplete="email" placeholder="name@example.com">
+                    <div class="invalid-feedback">Введите корректный адрес почты.</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="g-phone" class="form-label">Телефон <span class="text-muted small">(необязательно)</span></label>
+                    <input id="g-phone" name="phone" type="tel" class="form-control" pattern="\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}" autocomplete="tel" placeholder="+7 (900) 123-45-67">
+                    <div class="invalid-feedback">Введите телефон полностью или оставьте поле пустым.</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="g-pass" class="form-label">Пароль</label>
+                    <input id="g-pass" name="password" type="password" class="form-control" required minlength="6" autocomplete="new-password">
+                    <div class="form-text">Не менее 6 символов.</div>
+                    <div class="invalid-feedback">Пароль должен быть не короче 6 символов.</div>
+                  </div>
+                  <div class="form-check mb-3">
+                    <input id="g-consent" name="consent" type="checkbox" class="form-check-input" required>
+                    <label for="g-consent" class="form-check-label small">Согласен на обработку персональных данных и <a href="privacy.html" target="_blank" rel="noopener">политику конфиденциальности</a></label>
+                    <div class="invalid-feedback">Нужно ваше согласие.</div>
+                  </div>
+                  <div class="d-grid"><button type="submit" class="btn btn-accent btn-lg">Создать кабинет</button></div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Избранное для гостя -->
+        <section id="guestFavs" class="mt-5" aria-labelledby="gf-title" hidden>
+          <h2 id="gf-title" class="h4 mb-3">Избранные туры</h2>
+          <div id="guestFavEmpty" class="alert alert-info" hidden>Пока пусто. Нажмите на сердечко в карточке тура, чтобы сохранить его здесь. <a class="alert-link" href="catalog.html">Перейти в каталог</a></div>
+          <div class="row g-4" id="guestFavList"></div>
+        </section>
+      </section>
+
+      <!-- Авторизованный пользователь -->
+      <section id="cabinetView" aria-label="Личный кабинет" hidden>
+        <div class="card border-0 shadow-sm p-3 p-md-4 mb-4">
+          <div class="d-flex flex-wrap align-items-center gap-3">
+            <span class="cab-avatar" id="cabAvatar" aria-hidden="true">?</span>
+            <div class="flex-grow-1">
+              <h2 class="h4 mb-0" id="cabName">Имя</h2>
+              <p class="text-muted mb-0" id="cabEmail">почта</p>
+            </div>
+            <div class="d-flex gap-2">
+              <div class="cab-stat"><strong id="cabOrdersCount">0</strong><span class="small text-muted">заявок</span></div>
+              <div class="cab-stat"><strong id="cabFavCount">0</strong><span class="small text-muted">в избранном</span></div>
+            </div>
+            <button type="button" class="btn btn-outline-primary" id="logoutBtn"><i class="bi bi-box-arrow-right me-1"></i>Выйти</button>
+          </div>
+        </div>
+
+        <ul class="nav nav-tabs mb-4 flex-nowrap overflow-auto" id="cabTabs" role="tablist">
+          <li class="nav-item" role="presentation"><button class="nav-link active text-nowrap" id="tab-orders" data-bs-toggle="tab" data-bs-target="#pane-orders" type="button" role="tab" aria-controls="pane-orders" aria-selected="true"><i class="bi bi-card-checklist me-1"></i>Мои заявки</button></li>
+          <li class="nav-item" role="presentation"><button class="nav-link text-nowrap" id="tab-favs" data-bs-toggle="tab" data-bs-target="#pane-favs" type="button" role="tab" aria-controls="pane-favs" aria-selected="false"><i class="bi bi-heart me-1"></i>Избранное</button></li>
+          <li class="nav-item" role="presentation"><button class="nav-link text-nowrap" id="tab-myreviews" data-bs-toggle="tab" data-bs-target="#pane-myreviews" type="button" role="tab" aria-controls="pane-myreviews" aria-selected="false"><i class="bi bi-chat-square-text me-1"></i>Мои отзывы</button></li>
+          <li class="nav-item" role="presentation"><button class="nav-link text-nowrap" id="tab-profile" data-bs-toggle="tab" data-bs-target="#pane-profile" type="button" role="tab" aria-controls="pane-profile" aria-selected="false"><i class="bi bi-person-gear me-1"></i>Профиль</button></li>
+        </ul>
+
+        <div class="tab-content">
+          <div class="tab-pane fade show active" id="pane-orders" role="tabpanel" aria-labelledby="tab-orders" tabindex="0">
+            <div id="ordersEmpty" class="card border-0 shadow-sm p-4 text-center" hidden>
+              <p class="mb-3">Заявок пока нет. Выберите тур или оставьте заявку на подбор — она появится здесь.</p>
+              <div class="d-flex flex-wrap justify-content-center gap-2">
+                <a class="btn btn-primary" href="catalog.html">Смотреть туры</a>
+                <a class="btn btn-accent" href="order.html">Подобрать тур</a>
+              </div>
+            </div>
+            <div class="list-group shadow-sm" id="ordersList"></div>
+          </div>
+
+          <div class="tab-pane fade" id="pane-favs" role="tabpanel" aria-labelledby="tab-favs" tabindex="0">
+            <div id="favEmpty" class="card border-0 shadow-sm p-4 text-center" hidden>
+              <p class="mb-3">Вы пока ничего не добавили. Нажмите на сердечко в карточке тура — он сохранится здесь.</p>
+              <div><a class="btn btn-primary" href="catalog.html">Перейти в каталог</a></div>
+            </div>
+            <div class="row g-4" id="favList"></div>
+          </div>
+
+          <div class="tab-pane fade" id="pane-myreviews" role="tabpanel" aria-labelledby="tab-myreviews" tabindex="0">
+            <div id="myReviewsEmpty" class="card border-0 shadow-sm p-4 text-center" hidden>
+              <p class="mb-3">Вы ещё не оставляли отзывов. Расскажите о своей поездке другим туристам.</p>
+              <div><a class="btn btn-primary" href="reviews.html?review=new">Оставить отзыв</a></div>
+            </div>
+            <div class="row g-4" id="myReviews"></div>
+          </div>
+
+          <div class="tab-pane fade" id="pane-profile" role="tabpanel" aria-labelledby="tab-profile" tabindex="0">
+            <div class="row g-4">
+              <div class="col-12 col-lg-7">
+                <form id="profileForm" class="card border-0 shadow-sm p-3 p-md-4" novalidate data-no-prefill>
+                  <h2 class="h5 mb-3">Личные данные</h2>
+                  <div class="mb-3">
+                    <label for="p-name" class="form-label">Имя</label>
+                    <input id="p-name" name="name" type="text" class="form-control" required minlength="2" autocomplete="name">
+                    <div class="invalid-feedback">Введите имя (не менее 2 символов).</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="p-email" class="form-label">Электронная почта</label>
+                    <input id="p-email" name="email" type="email" class="form-control" readonly aria-describedby="p-email-help">
+                    <div id="p-email-help" class="form-text">Почта — это ваш логин, изменить её нельзя.</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="p-phone" class="form-label">Телефон</label>
+                    <input id="p-phone" name="phone" type="tel" class="form-control" pattern="\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}" autocomplete="tel" placeholder="+7 (900) 123-45-67">
+                    <div class="invalid-feedback">Введите телефон полностью.</div>
+                  </div>
+                  <div><button type="submit" class="btn btn-primary">Сохранить</button></div>
+                </form>
+              </div>
+              <div class="col-12 col-lg-5">
+                <div class="card border-0 shadow-sm p-3 p-md-4">
+                  <h2 class="h6 mb-2">Ваши данные</h2>
+                  <p class="small text-muted">Заявки, избранное и отзывы хранятся в этом браузере на вашем устройстве. На другом устройстве или в другом браузере их не будет видно.</p>
+                  <div><button type="button" class="btn btn-outline-danger btn-sm" id="clearDataBtn"><i class="bi bi-trash me-1"></i>Удалить аккаунт и данные</button></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer class="site-footer pt-5 pb-4 mt-5">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-12 col-lg-4">
+          <a class="d-flex align-items-center gap-2 text-white text-decoration-none fw-bold fs-5 mb-3" href="index.html">
+            <svg class="brand-logo" width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="17" fill="#0b7a7c"/><path d="M9 21a8 8 0 0 1 16 0z" fill="#f2a33a"/><path d="M6 21h22" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/><path d="M10 25h14" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".7"/></svg>
+            <span>Горизонт</span>
+          </a>
+          <p class="mb-0">Подбираем пляжный отдых, экскурсионные поездки и города Европы под ключ. Работаем с проверенными туроператорами и отелями.</p>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <h2 class="h6 text-white mb-3">Компания</h2>
+          <ul class="list-unstyled mb-0">
+            <li class="mb-2"><a href="about.html">О компании</a></li>
+            <li class="mb-2"><a href="order.html">Подобрать тур</a></li>
+            <li><a href="catalog.html">Все туры</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <h2 class="h6 text-white mb-3">Направления</h2>
+          <ul class="list-unstyled mb-0">
+            <li class="mb-2"><a href="catalog.html?dest=turkey">Турция</a></li>
+            <li class="mb-2"><a href="catalog.html?dest=egypt">Египет</a></li>
+            <li class="mb-2"><a href="catalog.html?dest=italy">Италия</a></li>
+            <li class="mb-2"><a href="catalog.html?dest=thailand">Таиланд</a></li>
+            <li><a href="catalog.html?dest=maldives">Мальдивы</a></li>
+          </ul>
+        </div>
+        <div class="col-12 col-md-4 col-lg-4">
+          <h2 class="h6 text-white mb-3">Контакты</h2>
+          <ul class="list-unstyled footer-contacts mb-0">
+            <li><i class="bi bi-clock" aria-hidden="true"></i><span>Пн–Пт: 9:00–21:00<br>Сб–Вс: 10:00–19:00</span></li>
+            <li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>г. Москва, Тверская ул., 18, офис 4</span></li>
+            <li><i class="bi bi-telephone" aria-hidden="true"></i><a href="tel:+78005550123">+7 (800) 555-01-23</a></li>
+            <li><i class="bi bi-envelope" aria-hidden="true"></i><a href="mailto:info@gorizont-tour.ru">info@gorizont-tour.ru</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr class="border-secondary my-4">
+      <div class="d-flex flex-wrap justify-content-between gap-2 small">
+        <span>&copy; 2026 Турагентство «Горизонт». Все права защищены.</span>
+        <span><a href="privacy.html">Политика конфиденциальности</a></span>
+      </div>
+    </div>
+  </footer>
+
+
+  <div class="toast-container position-fixed bottom-0 start-50 translate-middle-x p-3">
+    <div id="siteToast" class="toast align-items-center text-bg-success border-0" role="status" aria-live="polite" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body"></div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Закрыть"></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+      <div class="modal-content border-0 shadow">
+        <div class="modal-header border-0 pb-0">
+          <h2 class="modal-title h5" id="searchTitle">Поиск по сайту</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+        </div>
+        <div class="modal-body">
+          <form id="siteSearchForm" role="search" action="catalog.html" method="get">
+            <div class="input-group input-group-lg mb-3">
+              <span class="input-group-text"><i class="bi bi-search"></i></span>
+              <input id="siteSearchInput" name="q" type="search" class="form-control" placeholder="Страна, город, виза, оплата…" autocomplete="off" aria-label="Что вы ищете">
+              <button class="btn btn-primary" type="submit">Найти</button>
+            </div>
+          </form>
+          <div id="siteSearchResults" aria-live="polite"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button type="button" class="to-top" id="toTop" aria-label="Наверх страницы" title="Наверх" hidden><svg class="rose" width="30" height="30" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="24" r="21" fill="none" stroke="currentColor" stroke-width="1.6" opacity=".55"/><path d="M24 11 28 20 37 24 28 28 24 37 20 28 11 24 20 20Z" transform="rotate(45 24 24)" fill="currentColor" opacity=".55"/><path d="M24 3 28.5 19.5 45 24 28.5 28.5 24 45 19.5 28.5 3 24 19.5 19.5Z" fill="currentColor"/><path d="M24 3 28.5 19.5 19.5 19.5Z" fill="#f2a33a"/><circle cx="24" cy="24" r="2.2" fill="#0b7a7c"/></svg></button>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

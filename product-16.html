@@ -4,7 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Россия, Санкт-Петербург: 3 ночи, отель 4★, завтраки. Цена от 31 900 ₽ за человека.">
+  <meta name="color-scheme" content="light dark">
   <title>Санкт-Петербург: северная столица — тур от 31 900 ₽ | Горизонт</title>
+  <script>try{var t=localStorage.getItem('hz_theme');document.documentElement.setAttribute('data-bs-theme',t==='dark'?'dark':'light')}catch(e){}</script>
   <link rel="stylesheet" href="vendor/manrope/manrope.css">
   <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="vendor/bootstrap-icons/bootstrap-icons.min.css">
@@ -20,7 +22,7 @@
     </div>
   </div>
 
-  <nav class="navbar navbar-expand-lg bg-white sticky-top site-nav">
+  <nav class="navbar navbar-expand-lg bg-body sticky-top site-nav">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center gap-2 fw-bold" href="index.html">
         <svg class="brand-logo" width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="17" fill="#0b7a7c"/><path d="M9 21a8 8 0 0 1 16 0z" fill="#f2a33a"/><path d="M6 21h22" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/><path d="M10 25h14" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".7"/></svg>
@@ -51,7 +53,13 @@
           <li class="nav-item">
             <a class="nav-link" href="contacts.html">Контакты</a>
           </li>
-          <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+          <li class="nav-item ms-lg-2 mt-2 mt-lg-0 d-flex align-items-center gap-1 nav-tools">
+            <button class="nav-tool" type="button" data-bs-toggle="modal" data-bs-target="#searchModal" aria-label="Поиск по сайту" title="Поиск"><i class="bi bi-search"></i></button>
+            <a class="nav-tool" href="account.html#favorites" aria-label="Избранные туры" title="Избранное"><i class="bi bi-heart"></i><span class="nav-tool__badge" id="favCount" hidden>0</span></a>
+            <a class="nav-tool" id="accountLink" href="account.html" aria-label="Личный кабинет" title="Личный кабинет"><i class="bi bi-person"></i></a>
+            <button class="nav-tool" id="themeToggle" type="button" aria-label="Включить тёмную тему" title="Тёмная тема"><i class="bi bi-moon-stars"></i></button>
+          </li>
+          <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
             <a class="btn btn-primary" href="order.html">Подобрать тур</a>
           </li>
         </ul>
@@ -191,7 +199,11 @@
               </ul>
             </div>
             <div class="tab-pane fade" id="pane-rev" role="tabpanel" aria-labelledby="tab-rev" tabindex="0">
-              <p class="mb-3"><i class="bi bi-star-fill text-warning"></i> <strong>4.9</strong> <span class="text-muted">(133 отзывов)</span></p>
+              <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+                <p class="mb-0"><i class="bi bi-star-fill text-warning"></i> <strong>4.9</strong> <span class="text-muted">(133 отзывов)</span></p>
+                <a class="btn btn-accent btn-sm" href="reviews.html?review=spb"><i class="bi bi-pencil-square me-1"></i>Оставить отзыв</a>
+              </div>
+              <div id="userReviews" data-slug="spb"></div>
           <figure class="review mb-3">
             <div class="d-flex align-items-center gap-3 mb-2">
               <span class="avatar">АВ</span>
@@ -309,8 +321,9 @@
                     <option>4</option>
                   </select>
                 </div>
-                <div class="d-grid">
+                <div class="d-grid gap-2">
                   <button type="submit" class="btn btn-accent btn-lg">Забронировать</button>
+                  <button type="button" class="btn btn-outline-primary btn-fav-lg" data-fav="spb" aria-pressed="false"><i class="bi bi-heart me-1"></i><span>В избранное</span></button>
                 </div>
               </form>
               <ul class="list-unstyled small mt-4 mb-0">
@@ -336,6 +349,7 @@
           <div class="position-relative">
             <img src="images/photos/baikal.jpg" class="card-img-top" alt="Скалистый берег Байкала и прозрачный лёд" loading="lazy">
             <span class="badge bg-danger tour-card__label">Скидка</span>
+            <button class="btn-fav" type="button" data-fav="baikal" aria-pressed="false" aria-label="Добавить в избранное: Россия, Байкал"><i class="bi bi-heart"></i></button>
           </div>
           <div class="card-body d-flex flex-column">
             <p class="text-muted small mb-1"><i class="bi bi-geo-alt me-1"></i>Россия, Байкал</p>
@@ -357,6 +371,7 @@
           <div class="position-relative">
             <img src="images/photos/abudhabi.jpg" class="card-img-top" alt="Мечеть шейха Зайда ночью" loading="lazy">
             <span class="badge bg-dark tour-card__label">Премиум</span>
+            <button class="btn-fav" type="button" data-fav="abudhabi" aria-pressed="false" aria-label="Добавить в избранное: ОАЭ, Абу-Даби"><i class="bi bi-heart"></i></button>
           </div>
           <div class="card-body d-flex flex-column">
             <p class="text-muted small mb-1"><i class="bi bi-geo-alt me-1"></i>ОАЭ, Абу-Даби</p>
@@ -378,6 +393,7 @@
           <div class="position-relative">
             <img src="images/photos/maldives2.jpg" class="card-img-top" alt="Курортный остров на атолле Ари с высоты" loading="lazy">
             <span class="badge bg-danger tour-card__label">Горящий тур</span>
+            <button class="btn-fav" type="button" data-fav="maldives2" aria-pressed="false" aria-label="Добавить в избранное: Мальдивы, атолл Ари"><i class="bi bi-heart"></i></button>
           </div>
           <div class="card-body d-flex flex-column">
             <p class="text-muted small mb-1"><i class="bi bi-geo-alt me-1"></i>Мальдивы, атолл Ари</p>
@@ -444,8 +460,40 @@
     </div>
   </footer>
 
+
+  <div class="toast-container position-fixed bottom-0 start-50 translate-middle-x p-3">
+    <div id="siteToast" class="toast align-items-center text-bg-success border-0" role="status" aria-live="polite" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body"></div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Закрыть"></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+      <div class="modal-content border-0 shadow">
+        <div class="modal-header border-0 pb-0">
+          <h2 class="modal-title h5" id="searchTitle">Поиск по сайту</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+        </div>
+        <div class="modal-body">
+          <form id="siteSearchForm" role="search" action="catalog.html" method="get">
+            <div class="input-group input-group-lg mb-3">
+              <span class="input-group-text"><i class="bi bi-search"></i></span>
+              <input id="siteSearchInput" name="q" type="search" class="form-control" placeholder="Страна, город, виза, оплата…" autocomplete="off" aria-label="Что вы ищете">
+              <button class="btn btn-primary" type="submit">Найти</button>
+            </div>
+          </form>
+          <div id="siteSearchResults" aria-live="polite"></div>
+        </div>
+      </div>
+    </div>
+  </div>
   <button type="button" class="to-top" id="toTop" aria-label="Наверх страницы" title="Наверх" hidden><svg class="rose" width="30" height="30" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="24" r="21" fill="none" stroke="currentColor" stroke-width="1.6" opacity=".55"/><path d="M24 11 28 20 37 24 28 28 24 37 20 28 11 24 20 20Z" transform="rotate(45 24 24)" fill="currentColor" opacity=".55"/><path d="M24 3 28.5 19.5 45 24 28.5 28.5 24 45 19.5 28.5 3 24 19.5 19.5Z" fill="currentColor"/><path d="M24 3 28.5 19.5 19.5 19.5Z" fill="#f2a33a"/><circle cx="24" cy="24" r="2.2" fill="#0b7a7c"/></svg></button>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
