@@ -4,7 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Отзывы туристов о поездках с турагентством «Горизонт»: Турция, Египет, Италия, Таиланд, Грузия, Россия, Франция, ОАЭ и Мальдивы.">
+  <meta name="color-scheme" content="light dark">
   <title>Отзывы туристов — турагентство «Горизонт»</title>
+  <script>try{var t=localStorage.getItem('hz_theme');document.documentElement.setAttribute('data-bs-theme',t==='dark'?'dark':'light')}catch(e){}</script>
   <link rel="stylesheet" href="vendor/manrope/manrope.css">
   <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="vendor/bootstrap-icons/bootstrap-icons.min.css">
@@ -20,7 +22,7 @@
     </div>
   </div>
 
-  <nav class="navbar navbar-expand-lg bg-white sticky-top site-nav">
+  <nav class="navbar navbar-expand-lg bg-body sticky-top site-nav">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center gap-2 fw-bold" href="index.html">
         <svg class="brand-logo" width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="17" fill="#0b7a7c"/><path d="M9 21a8 8 0 0 1 16 0z" fill="#f2a33a"/><path d="M6 21h22" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/><path d="M10 25h14" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".7"/></svg>
@@ -51,7 +53,13 @@
           <li class="nav-item">
             <a class="nav-link" href="contacts.html">Контакты</a>
           </li>
-          <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+          <li class="nav-item ms-lg-2 mt-2 mt-lg-0 d-flex align-items-center gap-1 nav-tools">
+            <button class="nav-tool" type="button" data-bs-toggle="modal" data-bs-target="#searchModal" aria-label="Поиск по сайту" title="Поиск"><i class="bi bi-search"></i></button>
+            <a class="nav-tool" href="account.html#favorites" aria-label="Избранные туры" title="Избранное"><i class="bi bi-heart"></i><span class="nav-tool__badge" id="favCount" hidden>0</span></a>
+            <a class="nav-tool" id="accountLink" href="account.html" aria-label="Личный кабинет" title="Личный кабинет"><i class="bi bi-person"></i></a>
+            <button class="nav-tool" id="themeToggle" type="button" aria-label="Включить тёмную тему" title="Тёмная тема"><i class="bi bi-moon-stars"></i></button>
+          </li>
+          <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
             <a class="btn btn-primary" href="order.html">Подобрать тур</a>
           </li>
         </ul>
@@ -153,7 +161,8 @@
             </div>
           </div>
           <div class="col-12 col-md-3 text-md-end">
-            <p id="reviewCount" class="mb-0 text-muted" aria-live="polite"></p>
+            <p id="reviewCount" class="mb-2 text-muted" aria-live="polite"></p>
+            <button type="button" class="btn btn-accent w-100" data-bs-toggle="modal" data-bs-target="#reviewModal"><i class="bi bi-pencil-square me-1"></i>Оставить отзыв</button>
           </div>
         </div>
       </form>
@@ -1774,6 +1783,96 @@
       </section>
     </div>
   </main>
+
+  <div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content border-0 shadow">
+        <form id="reviewForm" novalidate>
+          <div class="modal-header">
+            <h2 class="modal-title h5" id="reviewModalTitle">Оставить отзыв</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="rv-name" class="form-label">Ваше имя</label>
+              <input id="rv-name" name="name" type="text" class="form-control" required minlength="2" autocomplete="name" placeholder="Иван Петров">
+              <div class="invalid-feedback">Введите имя (не менее 2 символов).</div>
+            </div>
+            <div class="mb-3">
+              <label for="rv-tour" class="form-label">Тур</label>
+              <select id="rv-tour" name="tour" class="form-select" required>
+                <option value="">Выберите тур</option>
+                <option value="antalya">Турция, Анталья</option>
+                <option value="sharm">Египет, Шарм-эль-Шейх</option>
+                <option value="rome">Италия, Рим</option>
+                <option value="phuket">Таиланд, Пхукет</option>
+                <option value="tbilisi">Грузия, Тбилиси и Кахетия</option>
+                <option value="baikal">Россия, Байкал</option>
+                <option value="paris">Франция, Париж</option>
+                <option value="dubai">ОАЭ, Дубай</option>
+                <option value="maldives">Мальдивы</option>
+                <option value="kemer">Турция, Кемер</option>
+                <option value="istanbul">Турция, Стамбул</option>
+                <option value="hurghada">Египет, Хургада</option>
+                <option value="venice">Италия, Венеция</option>
+                <option value="bangkok">Таиланд, Бангкок и Паттайя</option>
+                <option value="batumi">Грузия, Батуми</option>
+                <option value="spb">Россия, Санкт-Петербург</option>
+                <option value="nice">Франция, Ницца и Лазурный берег</option>
+                <option value="abudhabi">ОАЭ, Абу-Даби</option>
+                <option value="maldives2">Мальдивы, атолл Ари</option>
+              </select>
+              <div class="invalid-feedback">Выберите тур, о котором пишете.</div>
+            </div>
+            <div class="row g-3 mb-3">
+              <div class="col-12 col-sm-6">
+                <label for="rv-month" class="form-label">Когда ездили</label>
+                <select id="rv-month" name="month" class="form-select" required></select>
+              </div>
+              <div class="col-12 col-sm-6">
+                <label for="rv-kind" class="form-label">С кем</label>
+                <select id="rv-kind" name="kind" class="form-select">
+                  <option>Семейная поездка</option>
+                  <option>Вдвоём</option>
+                  <option>С друзьями</option>
+                  <option>Один</option>
+                </select>
+              </div>
+            </div>
+            <fieldset class="mb-3">
+              <legend class="form-label fs-6">Оценка</legend>
+              <div class="btn-group w-100" role="group" aria-label="Оценка от 1 до 5">
+                <input type="radio" class="btn-check" name="stars" id="rv-s5" value="5" required checked>
+                <label class="btn btn-outline-primary" for="rv-s5">5</label>
+                <input type="radio" class="btn-check" name="stars" id="rv-s4" value="4">
+                <label class="btn btn-outline-primary" for="rv-s4">4</label>
+                <input type="radio" class="btn-check" name="stars" id="rv-s3" value="3">
+                <label class="btn btn-outline-primary" for="rv-s3">3</label>
+                <input type="radio" class="btn-check" name="stars" id="rv-s2" value="2">
+                <label class="btn btn-outline-primary" for="rv-s2">2</label>
+                <input type="radio" class="btn-check" name="stars" id="rv-s1" value="1">
+                <label class="btn btn-outline-primary" for="rv-s1">1</label>
+              </div>
+            </fieldset>
+            <div class="mb-3">
+              <label for="rv-text" class="form-label">Ваш отзыв</label>
+              <textarea id="rv-text" name="text" class="form-control" rows="4" required minlength="20" maxlength="600" placeholder="Что понравилось, что можно улучшить, кому бы вы посоветовали этот тур"></textarea>
+              <div class="invalid-feedback">Напишите отзыв (не менее 20 символов).</div>
+            </div>
+            <div class="form-check">
+              <input id="rv-consent" name="consent" type="checkbox" class="form-check-input" required>
+              <label for="rv-consent" class="form-check-label small">Согласен на публикацию отзыва и обработку персональных данных, <a href="privacy.html" target="_blank" rel="noopener">политика конфиденциальности</a></label>
+              <div class="invalid-feedback">Нужно ваше согласие.</div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Отмена</button>
+            <button type="submit" class="btn btn-accent">Опубликовать</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
   <footer class="site-footer pt-5 pb-4 mt-5">
     <div class="container">
       <div class="row g-4">
@@ -1820,8 +1919,40 @@
     </div>
   </footer>
 
+
+  <div class="toast-container position-fixed bottom-0 start-50 translate-middle-x p-3">
+    <div id="siteToast" class="toast align-items-center text-bg-success border-0" role="status" aria-live="polite" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body"></div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Закрыть"></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+      <div class="modal-content border-0 shadow">
+        <div class="modal-header border-0 pb-0">
+          <h2 class="modal-title h5" id="searchTitle">Поиск по сайту</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+        </div>
+        <div class="modal-body">
+          <form id="siteSearchForm" role="search" action="catalog.html" method="get">
+            <div class="input-group input-group-lg mb-3">
+              <span class="input-group-text"><i class="bi bi-search"></i></span>
+              <input id="siteSearchInput" name="q" type="search" class="form-control" placeholder="Страна, город, виза, оплата…" autocomplete="off" aria-label="Что вы ищете">
+              <button class="btn btn-primary" type="submit">Найти</button>
+            </div>
+          </form>
+          <div id="siteSearchResults" aria-live="polite"></div>
+        </div>
+      </div>
+    </div>
+  </div>
   <button type="button" class="to-top" id="toTop" aria-label="Наверх страницы" title="Наверх" hidden><svg class="rose" width="30" height="30" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="24" r="21" fill="none" stroke="currentColor" stroke-width="1.6" opacity=".55"/><path d="M24 11 28 20 37 24 28 28 24 37 20 28 11 24 20 20Z" transform="rotate(45 24 24)" fill="currentColor" opacity=".55"/><path d="M24 3 28.5 19.5 45 24 28.5 28.5 24 45 19.5 28.5 3 24 19.5 19.5Z" fill="currentColor"/><path d="M24 3 28.5 19.5 19.5 19.5Z" fill="#f2a33a"/><circle cx="24" cy="24" r="2.2" fill="#0b7a7c"/></svg></button>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
