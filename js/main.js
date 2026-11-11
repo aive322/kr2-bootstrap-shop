@@ -13,6 +13,32 @@
     return many;
   }
 
+  /* ---------- Пагинация (общая для каталога и отзывов) ---------- */
+  function renderPagination(pager, page, pages, goTo) {
+    pager.innerHTML = '';
+    if (pages < 2) return;
+    var add = function (label, target, disabled, active, aria) {
+      var li = document.createElement('li');
+      li.className = 'page-item' + (disabled ? ' disabled' : '') + (active ? ' active' : '');
+      var a = document.createElement('a');
+      a.className = 'page-link';
+      a.href = '#';
+      a.textContent = label;
+      if (aria) a.setAttribute('aria-label', aria);
+      if (active) a.setAttribute('aria-current', 'page');
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (disabled || active) return;
+        goTo(target);
+      });
+      li.appendChild(a);
+      pager.appendChild(li);
+    };
+    add('\u2039', page - 1, page === 1, false, 'Предыдущая страница');
+    for (var i = 1; i <= pages; i++) add(String(i), i, false, i === page);
+    add('\u203a', page + 1, page === pages, false, 'Следующая страница');
+  }
+
   /* ---------- Уведомление ---------- */
   function showToast(text) {
     var el = $('#siteToast');
@@ -116,6 +142,124 @@
     if (date) date.min = new Date().toISOString().slice(0, 10);
   }
 
+  /* ---------- Анимации: появление блоков, счётчики, шапка, «наверх» ---------- */
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function formatCount(value, decimals) {
+    var str = decimals ? value.toFixed(decimals).replace('.', ',') : String(Math.round(value));
+    var parts = str.split(',');
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, '\u00a0');
+    return parts.join(',');
+  }
+
+  function runCounter(el) {
+    var target = parseFloat(el.getAttribute('data-count'));
+    var decimals = parseInt(el.getAttribute('data-decimals') || '0', 10);
+    if (reduceMotion || isNaN(target)) { el.textContent = formatCount(target, decimals); return; }
+    var start = null, duration = 1400;
+    var step = function (ts) {
+      if (start === null) start = ts;
+      var p = Math.min((ts - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = formatCount(target * eased, decimals);
+      if (p < 1) window.requestAnimationFrame(step);
+    };
+    window.requestAnimationFrame(step);
+  }
+
+  var counters = $$('[data-count]');
+  var revealSel = '.section-title, .feature, .step, .review, .dest, .team-card, .timeline__item, .about-photos, .about-stats, .cta, .tour-card, .stats';
+  var revealEls = $$('main ' + revealSel.split(', ').join(', main ')).filter(function (el) {
+    return !el.closest('#reviewList') && !el.closest('#tourList') && !el.closest('.tab-pane') && !el.closest('.modal');
+  });
+
+  if ('IntersectionObserver' in window && !reduceMotion) {
+    revealEls.forEach(function (el) {
+      el.classList.add('reveal');
+      var col = el.closest('[class*="col-"]');
+      var idx = col && col.parentElement ? Array.prototype.indexOf.call(col.parentElement.children, col) : 0;
+      el.style.setProperty('--reveal-delay', (idx % 4) * 90 + 'ms');
+    });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(function (el) { io.observe(el); });
+
+    var cio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        runCounter(entry.target);
+        cio.unobserve(entry.target);
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(function (el) { cio.observe(el); });
+  }
+
+  var siteNav = $('.site-nav');
+  var setNavHeight = function () {
+    if (siteNav) document.documentElement.style.setProperty('--nav-h', siteNav.offsetHeight + 'px');
+  };
+  setNavHeight();
+  window.addEventListener('resize', setNavHeight);
+  var toTop = $('#toTop');
+  var onScroll = function () {
+    var y = window.pageYOffset || document.documentElement.scrollTop;
+    if (siteNav) siteNav.classList.toggle('is-scrolled', y > 8);
+    if (toTop) {
+      toTop.hidden = false;
+      toTop.classList.toggle('is-shown', y > 600);
+    }
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+  if (toTop) {
+    toTop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+    });
+  }
+
+  /* ---------- Страница отзывов: фильтры и страницы ---------- */
+  var reviewList = $('#reviewList');
+  if (reviewList) {
+    var RPAGE = 12;
+    var rform = $('#reviewFilter');
+    var rcols = $$('.review-col', reviewList);
+    var rpager = $('#reviewPager');
+    var rcount = $('#reviewCount');
+    var rempty = $('#reviewEmpty');
+    var rpage = 1;
+
+    var rapply = function () {
+      var dest = $('#r-dest').value;
+      var starsEl = $('input[name="stars"]:checked', rform);
+      var stars = starsEl ? starsEl.value : '';
+      var found = rcols.filter(function (c) {
+        return (!dest || c.getAttribute('data-dest') === dest) && (!stars || c.getAttribute('data-stars') === stars);
+      });
+      var pages = Math.max(1, Math.ceil(found.length / RPAGE));
+      if (rpage > pages) rpage = pages;
+      rcols.forEach(function (c) { c.classList.add('d-none'); });
+      found.slice((rpage - 1) * RPAGE, rpage * RPAGE).forEach(function (c) { c.classList.remove('d-none'); });
+      rcount.textContent = 'Найдено: ' + found.length + ' ' + plural(found.length, 'отзыв', 'отзыва', 'отзывов');
+      rempty.hidden = found.length > 0;
+      renderPagination(rpager, rpage, pages, function (target) {
+        rpage = target;
+        rapply();
+        reviewList.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+      });
+    };
+
+    var rparams = new URLSearchParams(window.location.search);
+    if (rparams.get('dest')) $('#r-dest').value = rparams.get('dest');
+    rform.addEventListener('change', function () { rpage = 1; rapply(); });
+    rform.addEventListener('submit', function (e) { e.preventDefault(); });
+    rapply();
+  }
+
   /* ---------- Каталог: фильтры, сортировка, страницы ---------- */
   var list = $('#tourList');
   var form = $('#filterForm');
@@ -164,30 +308,11 @@
     };
 
     var renderPager = function (pages) {
-      pager.innerHTML = '';
-      if (pages < 2) return;
-      var add = function (label, target, disabled, active, aria) {
-        var li = document.createElement('li');
-        li.className = 'page-item' + (disabled ? ' disabled' : '') + (active ? ' active' : '');
-        var a = document.createElement('a');
-        a.className = 'page-link';
-        a.href = '#tourList';
-        a.textContent = label;
-        if (aria) a.setAttribute('aria-label', aria);
-        if (active) a.setAttribute('aria-current', 'page');
-        a.addEventListener('click', function (e) {
-          e.preventDefault();
-          if (disabled || active) return;
-          page = target;
-          apply();
-          list.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        });
-        li.appendChild(a);
-        pager.appendChild(li);
-      };
-      add('‹', page - 1, page === 1, false, 'Предыдущая страница');
-      for (var i = 1; i <= pages; i++) add(String(i), i, false, i === page);
-      add('›', page + 1, page === pages, false, 'Следующая страница');
+      renderPagination(pager, page, pages, function (target) {
+        page = target;
+        apply();
+        list.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
     };
 
     var apply = function () {

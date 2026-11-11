@@ -45,24 +45,8 @@
           <li class="nav-item">
             <a class="nav-link" href="catalog.html">Туры</a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Направления</a>
-            <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="catalog.html?dest=turkey">Турция</a></li>
-            <li><a class="dropdown-item" href="catalog.html?dest=egypt">Египет</a></li>
-            <li><a class="dropdown-item" href="catalog.html?dest=italy">Италия</a></li>
-            <li><a class="dropdown-item" href="catalog.html?dest=thailand">Таиланд</a></li>
-            <li><a class="dropdown-item" href="catalog.html?dest=georgia">Грузия</a></li>
-            <li><a class="dropdown-item" href="catalog.html?dest=russia">Россия</a></li>
-            <li><a class="dropdown-item" href="catalog.html?dest=france">Франция</a></li>
-            <li><a class="dropdown-item" href="catalog.html?dest=uae">ОАЭ</a></li>
-            <li><a class="dropdown-item" href="catalog.html?dest=maldives">Мальдивы</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="catalog.html">Все туры</a></li>
-            </ul>
-          </li>
           <li class="nav-item">
-            <a class="nav-link" href="index.html#reviews">Отзывы</a>
+            <a class="nav-link" href="about.html">О компании</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="contacts.html">Контакты</a>
@@ -88,66 +72,20 @@
           </div>
         </div>
 
-        <form class="search-card mt-3" action="catalog.html" method="get">
-          <div class="row g-2 align-items-end">
-            <div class="col-12 col-md-6 col-lg-3">
-              <label for="search-dest" class="form-label small fw-semibold">Куда</label>
-              <select id="search-dest" name="dest" class="form-select">
-                <option value="">Любое направление</option>
-                <option value="turkey">Турция</option>
-                <option value="egypt">Египет</option>
-                <option value="italy">Италия</option>
-                <option value="thailand">Таиланд</option>
-                <option value="georgia">Грузия</option>
-                <option value="russia">Россия</option>
-                <option value="france">Франция</option>
-                <option value="uae">ОАЭ</option>
-                <option value="maldives">Мальдивы</option>
-              </select>
-            </div>
-            <div class="col-6 col-lg-3">
-              <label for="search-month" class="form-label small fw-semibold">Когда</label>
-              <select id="search-month" name="month" class="form-select">
-                <option value="">Любой месяц</option>
-                <option>Декабрь 2026</option>
-                <option>Январь 2027</option>
-                <option>Февраль 2027</option>
-                <option>Март 2027</option>
-              </select>
-            </div>
-            <div class="col-6 col-lg-2">
-              <label for="search-nights" class="form-label small fw-semibold">Ночей</label>
-              <select id="search-nights" name="nights" class="form-select">
-                <option value="">Любое</option>
-                <option value="short">4–7</option>
-                <option value="mid">8–10</option>
-                <option value="long">11–14</option>
-              </select>
-            </div>
-            <div class="col-6 col-lg-2">
-              <label for="search-guests" class="form-label small fw-semibold">Туристов</label>
-              <select id="search-guests" name="guests" class="form-select">
-                <option>1</option>
-                <option selected>2</option>
-                <option>3</option>
-                <option>4</option>
-              </select>
-            </div>
-            <div class="col-6 col-lg-2 d-grid">
-              <button class="btn btn-primary" type="submit"><i class="bi bi-search me-1"></i>Найти тур</button>
-            </div>
-          </div>
-        </form>
+        <div class="d-flex flex-wrap gap-3 hero__actions">
+          <a class="btn btn-accent btn-lg px-4" href="catalog.html">Смотреть туры</a>
+          <a class="btn btn-outline-light btn-lg px-4" href="order.html">Подобрать тур</a>
+        </div>
       </div>
     </section>
 
     <!-- Цифры компании -->
     <section class="container">
       <div class="row g-0 stats text-center">
-        <div class="col-6 col-md-3 stats__item"><strong class="d-block fs-3">12 лет</strong><span class="text-muted small">на рынке туризма</span></div>
-        <div class="col-6 col-md-3 stats__item"><strong class="d-block fs-3">25 000+</strong><span class="text-muted small">довольных туристов</span></div>
-        <div class="col-6 col-md-3 stats__item"><strong class="d-block fs-3">40 стран</strong><span class="text-muted small">в каталоге направлений</span></div>
-        <div class="col-6 col-md-3 stats__item"><strong class="d-block fs-3">4,8 из 5</strong><span class="text-muted small">средняя оценка</span></div>
+        <div class="col-6 col-md-3 stats__item"><strong class="d-block fs-3"><span data-count="12">12</span> лет</strong><span class="text-muted small">на рынке туризма</span></div>
+        <div class="col-6 col-md-3 stats__item"><strong class="d-block fs-3"><span data-count="25000">25&nbsp;000</span>+</strong><span class="text-muted small">довольных туристов</span></div>
+        <div class="col-6 col-md-3 stats__item"><strong class="d-block fs-3"><span data-count="9">9</span> стран</strong><span class="text-muted small">в каталоге направлений</span></div>
+        <div class="col-6 col-md-3 stats__item"><strong class="d-block fs-3"><span data-count="4.8" data-decimals="1">4,8</span> из 5</strong><span class="text-muted small">средняя оценка</span></div>
       </div>
     </section>
 
@@ -469,9 +407,6 @@
             <blockquote class="mb-0">Цена приятно удивила, при этом отель оказался хорошим. Риф находится прямо у пирса: надела маску и сразу увидела рыб-клоунов и целые стаи коралловых окуней. Питание разнообразное, особенно понравились свежие фрукты. Единственное, хотелось бы чуть больше экскурсий в пакете, но их удобно брать на месте.</blockquote>
           </figure>
         </div>
-      </div>
-      <div class="collapse" id="moreReviews">
-        <div class="row g-4 pt-4">
         <div class="col-12 col-md-6 col-lg-4">
           <figure class="review h-100">
             <div class="d-flex align-items-center gap-3 mb-3">
@@ -514,10 +449,9 @@
             <blockquote class="mb-0">Париж такой, каким мы его представляли. Круиз по Сене вечером был лучшим моментом поездки: огни, мосты, тихая музыка. Отель рядом с метро, до Лувра дошли пешком. Гид на обзорной экскурсии сумел увлечь даже тех, кто бывал здесь прежде. Завтраки в отеле простые, но свежие, с отличными круассанами.</blockquote>
           </figure>
         </div>
-        </div>
       </div>
       <div class="text-center mt-4">
-        <button class="btn btn-outline-primary btn-lg px-4" type="button" data-bs-toggle="collapse" data-bs-target="#moreReviews" aria-expanded="false" aria-controls="moreReviews" data-more="Показать ещё отзывы" data-less="Скрыть отзывы">Показать ещё отзывы</button>
+        <a class="btn btn-outline-primary btn-lg px-4" href="reviews.html">Читать все отзывы</a>
       </div>
     </section>
 
@@ -557,9 +491,15 @@
             <svg class="brand-logo" width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="17" fill="#0b7a7c"/><path d="M9 21a8 8 0 0 1 16 0z" fill="#f2a33a"/><path d="M6 21h22" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/><path d="M10 25h14" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".7"/></svg>
             <span>Горизонт</span>
           </a>
-          <p class="mb-3">Подбираем пляжный отдых, экскурсионные поездки и города Европы под ключ. Работаем с проверенными туроператорами и отелями.</p>
-          <p class="mb-1"><i class="bi bi-telephone me-2"></i><a href="tel:+78005550123">+7 (800) 555-01-23</a></p>
-          <p class="mb-0"><i class="bi bi-envelope me-2"></i><a href="mailto:info@gorizont-tour.ru">info@gorizont-tour.ru</a></p>
+          <p class="mb-0">Подбираем пляжный отдых, экскурсионные поездки и города Европы под ключ. Работаем с проверенными туроператорами и отелями.</p>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <h2 class="h6 text-white mb-3">Компания</h2>
+          <ul class="list-unstyled mb-0">
+            <li class="mb-2"><a href="about.html">О компании</a></li>
+            <li class="mb-2"><a href="order.html">Подобрать тур</a></li>
+            <li><a href="catalog.html">Все туры</a></li>
+          </ul>
         </div>
         <div class="col-6 col-md-4 col-lg-2">
           <h2 class="h6 text-white mb-3">Направления</h2>
@@ -571,21 +511,14 @@
             <li><a href="catalog.html?dest=maldives">Мальдивы</a></li>
           </ul>
         </div>
-        <div class="col-6 col-md-4 col-lg-2">
-          <h2 class="h6 text-white mb-3">Компания</h2>
-          <ul class="list-unstyled mb-0">
-            <li class="mb-2"><a href="index.html#why">О нас</a></li>
-            <li class="mb-2"><a href="index.html#reviews">Отзывы</a></li>
-            <li class="mb-2"><a href="order.html">Подобрать тур</a></li>
-            <li class="mb-2"><a href="catalog.html">Все туры</a></li>
-            <li><a href="contacts.html">Контакты</a></li>
-          </ul>
-        </div>
         <div class="col-12 col-md-4 col-lg-4">
-          <h2 class="h6 text-white mb-3">Режим работы</h2>
-          <p class="mb-1">Пн–Пт: 9:00–21:00</p>
-          <p class="mb-3">Сб–Вс: 10:00–19:00</p>
-          <p class="mb-0">г. Москва, Тверская ул., 18, офис 4</p>
+          <h2 class="h6 text-white mb-3">Контакты</h2>
+          <ul class="list-unstyled footer-contacts mb-0">
+            <li><i class="bi bi-clock" aria-hidden="true"></i><span>Пн–Пт: 9:00–21:00<br>Сб–Вс: 10:00–19:00</span></li>
+            <li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>г. Москва, Тверская ул., 18, офис 4</span></li>
+            <li><i class="bi bi-telephone" aria-hidden="true"></i><a href="tel:+78005550123">+7 (800) 555-01-23</a></li>
+            <li><i class="bi bi-envelope" aria-hidden="true"></i><a href="mailto:info@gorizont-tour.ru">info@gorizont-tour.ru</a></li>
+          </ul>
         </div>
       </div>
       <hr class="border-secondary my-4">
@@ -596,6 +529,7 @@
     </div>
   </footer>
 
+  <button type="button" class="to-top" id="toTop" aria-label="Наверх страницы" title="Наверх" hidden><svg class="rose" width="30" height="30" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="24" r="21" fill="none" stroke="currentColor" stroke-width="1.6" opacity=".55"/><path d="M24 11 28 20 37 24 28 28 24 37 20 28 11 24 20 20Z" transform="rotate(45 24 24)" fill="currentColor" opacity=".55"/><path d="M24 3 28.5 19.5 45 24 28.5 28.5 24 45 19.5 28.5 3 24 19.5 19.5Z" fill="currentColor"/><path d="M24 3 28.5 19.5 19.5 19.5Z" fill="#f2a33a"/><circle cx="24" cy="24" r="2.2" fill="#0b7a7c"/></svg></button>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="js/main.js"></script>
 </body>
