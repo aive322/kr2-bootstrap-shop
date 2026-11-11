@@ -394,9 +394,13 @@ html {
 }
 
 @media (min-width: 992px) {
-  .filters {
+  /* Фильтры остаются на экране при прокрутке списка туров */
+  #filters {
     position: sticky;
-    top: 5.5rem;
+    top: calc(var(--nav-h, 64px) + 0.5rem);
+    max-height: calc(100vh - var(--nav-h, 64px) - 1.5rem);
+    overflow-y: auto;
+    border-radius: 1rem;
   }
 }
 
@@ -517,3 +521,373 @@ html {
 .policy ul { padding-left: 1.25rem; }
 .policy li { margin-bottom: .35rem; }
 .policy p { color: #3d4b5c; }
+
+/* ===== Страницы «О компании» и «Отзывы» ===== */
+.about-photos {
+  position: relative;
+  padding: 0 0 3rem 3rem;
+}
+
+.about-photos__main {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 1rem;
+  box-shadow: 0 14px 36px rgba(15, 42, 67, 0.18);
+}
+
+.about-photos__small {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 45%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 1rem;
+  border: 6px solid #fff;
+  box-shadow: 0 10px 28px rgba(15, 42, 67, 0.2);
+}
+
+.about-stats {
+  background: linear-gradient(135deg, var(--hz-navy), #14496a);
+  color: #fff;
+  border-radius: 1rem;
+  padding: 1.75rem 0.5rem;
+}
+
+.about-stats .stats__item strong {
+  color: var(--hz-accent);
+}
+
+.about-stats .stats__item {
+  padding: 0.5rem;
+}
+
+.timeline {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 720px;
+  position: relative;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 3.75rem;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  width: 2px;
+  background: #cfe3e4;
+}
+
+.timeline__item {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  padding: 0.75rem 0;
+  position: relative;
+}
+
+.timeline__year {
+  flex: 0 0 3rem;
+  font-weight: 800;
+  color: var(--hz-primary);
+  text-align: right;
+  padding-top: 0.1rem;
+}
+
+.timeline__item::before {
+  content: "";
+  position: absolute;
+  left: calc(3rem + 0.75rem - 0.2rem);
+  top: 1.05rem;
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid var(--hz-accent);
+  z-index: 1;
+}
+
+.timeline__body {
+  padding-left: 1rem;
+}
+
+.team-card {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1.5rem 1rem;
+  box-shadow: 0 4px 18px rgba(15, 42, 67, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 26px rgba(15, 42, 67, 0.14);
+}
+
+.team-card__avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+  color: #fff;
+  font-weight: 800;
+  font-size: 1.35rem;
+  margin-bottom: 0.9rem;
+}
+
+.about-cta {
+  margin-top: 1rem;
+}
+
+.progress-bar {
+  background-color: var(--hz-accent);
+}
+
+#reviewList .review blockquote {
+  font-size: 0.97rem;
+}
+
+@media (max-width: 575.98px) {
+  .about-photos {
+    padding: 0 0 2rem 1.5rem;
+  }
+
+  .timeline::before {
+    left: 3.3rem;
+  }
+
+  .timeline__item {
+    gap: 1rem;
+  }
+
+  .timeline__item::before {
+    left: calc(3rem + 0.5rem - 0.2rem);
+  }
+}
+
+/* ===== Анимации и приятные мелочи ===== */
+/* Появление блоков при прокрутке (классы добавляет js/main.js) */
+.reveal {
+  opacity: 0;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  animation: hz-rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) var(--reveal-delay, 0ms) backwards;
+}
+
+/* Появление текста на первом экране */
+@keyframes hz-rise {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.hero__content .hero__eyebrow,
+.hero__content h1,
+.hero__content .lead {
+  animation: hz-rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.hero__content h1 { animation-delay: 0.12s; }
+.hero__content .lead { animation-delay: 0.24s; }
+.hero__content .hero__actions { animation: hz-rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) 0.36s both; }
+
+/* Медленное «приближение» фото на главной */
+@keyframes hz-zoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.07); }
+}
+
+.hero__bg {
+  animation: hz-zoom 22s ease-in-out infinite alternate;
+}
+
+/* Шапка: тень после прокрутки */
+.site-nav {
+  transition: box-shadow 0.25s ease;
+}
+
+.site-nav.is-scrolled {
+  box-shadow: 0 6px 20px rgba(15, 42, 67, 0.1);
+}
+
+/* Ссылки меню: подчёркивание выезжает слева */
+.site-nav .nav-link {
+  position: relative;
+}
+
+@media (min-width: 992px) {
+  .site-nav .nav-link:not(.dropdown-toggle)::after {
+    content: "";
+    position: absolute;
+    left: var(--bs-navbar-nav-link-padding-x, 0.5rem);
+    right: var(--bs-navbar-nav-link-padding-x, 0.5rem);
+    bottom: 0.2rem;
+    height: 2px;
+    background: var(--hz-accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+  }
+
+  .site-nav .nav-link:not(.dropdown-toggle):hover::after,
+  .site-nav .nav-link.active::after {
+    transform: scaleX(1);
+  }
+}
+
+/* Кнопки и карточки: мягкий подъём */
+.btn {
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.btn-primary:hover,
+.btn-accent:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(15, 42, 67, 0.18);
+}
+
+.feature,
+.step,
+.review {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.feature:hover,
+.step:hover,
+.review:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(15, 42, 67, 0.12);
+}
+
+.feature__icon {
+  transition: transform 0.3s ease;
+}
+
+.feature:hover .feature__icon {
+  transform: rotate(-8deg) scale(1.1);
+}
+
+.site-footer a {
+  transition: color 0.15s ease, padding-left 0.15s ease;
+}
+
+/* Кнопка «наверх» */
+.to-top {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 1030;
+  width: 2.9rem;
+  height: 2.9rem;
+  border: 0;
+  border-radius: 50%;
+  background: var(--hz-primary);
+  color: #fff;
+  font-size: 1.25rem;
+  box-shadow: 0 8px 20px rgba(15, 42, 67, 0.28);
+  opacity: 0;
+  transform: translateY(14px);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease, background-color 0.15s ease;
+}
+
+.to-top.is-shown {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+.to-top:hover {
+  background: var(--hz-primary-dark);
+}
+
+.to-top .rose {
+  transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.to-top:hover .rose {
+  transform: rotate(180deg);
+}
+
+.to-top:focus-visible {
+  outline: 3px solid var(--hz-accent);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal.is-visible {
+    opacity: 1;
+    animation: none;
+  }
+
+  .hero__content .hero__eyebrow,
+  .hero__content h1,
+  .hero__content .lead,
+  .hero__content .hero__actions,
+  .hero__bg {
+    animation: none;
+  }
+
+  .feature,
+  .step,
+  .review,
+  .team-card,
+  .btn,
+  .to-top,
+  .to-top .rose,
+  .site-nav .nav-link::after {
+    transition: none;
+  }
+
+  .btn-primary:hover,
+  .btn-accent:hover,
+  .feature:hover,
+  .step:hover,
+  .review:hover,
+  .team-card:hover {
+    transform: none;
+  }
+}
+
+/* Панель сортировки в каталоге остаётся под шапкой при прокрутке списка */
+.catalog-toolbar {
+  position: sticky;
+  top: calc(var(--nav-h, 64px) + 0.5rem);
+  z-index: 1010;
+  padding: 0.6rem 1rem;
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 16px rgba(15, 42, 67, 0.1);
+  backdrop-filter: blur(6px);
+}
+
+/* Контакты в подвале */
+.footer-contacts li {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+}
+
+.footer-contacts i {
+  color: var(--hz-accent);
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+.hero__actions {
+  margin-top: 1.5rem;
+}
